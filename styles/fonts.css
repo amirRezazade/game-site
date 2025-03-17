@@ -5,22 +5,18 @@
     url(../fonts/iran-sans/woff2/IRANSansX-Medium.woff2) format(woff2);
 }
 @font-face {
-  font-family: iran-bold;
-  src: url(../fonts/iran-sans/woff/IRANSansX-Bold.woff) format(woff),
-    url(../fonts/iran-sans/woff2/IRANSansX-Bold.woff2) format(woff2);
-}
-@font-face {
-  font-family: kalam;
-  src: url(../fonts/kalameh/_Woff/KalamehWeb-Medium.woff) format(woff),
-    url(../fonts/kalameh/_Woff2/KalamehWeb-Medium.woff2) format(woff2);
-}
-@font-face {
   font-family: iran-num;
   src: url(../fonts/iran-sans/woff/IRANSansXFaNum-Medium.woff) format(woff);
 }
 @font-face {
+  font-family: kalam;
+  src: url(../fonts/kalam/_Woff/KalamWeb-Medium.woff) format(woff),
+    url(../fonts/kalam/_Woff2/KalamWeb-Medium.woff2) format(woff2);
+}
+
+@font-face {
   font-family: kalam-bold;
-  src: url(../fonts/kalameh/_Woff/KalamehWeb-Bold.woff) format(woff),
-    url(../fonts/kalameh/_Woff2/KalamehWeb-Bold.woff2) format(woff2);
+  src: url(../fonts/kalam/_Woff/KalamWeb-Bold.woff) format(woff),
+    url(../fonts/kalam/_Woff2/KalamWeb-Bold.woff2) format(woff2);
 }
 
