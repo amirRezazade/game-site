@@ -15,8 +15,8 @@
 @theme {
   --font-iran-sans: "iran-sans";
   --font-iran-bold: "iran-bold";
-  --font-kalameh: "kalameh";
-  --font-kalameh-bold: "kalameh-bold";
+  --font-kalam: "kalam";
+  --font-kalam-bold: "kalam-bold";
   --font-iran-num: "iran-num";
 }
 @import "tailwindcss";
