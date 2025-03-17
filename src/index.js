@@ -1,28 +1,31 @@
 const navItems = document.querySelectorAll("#nav-items");
-const toggleMenu =document.querySelector('#toggle-menu')
-const toggleMenuBtn =document.querySelector('#toggle-menu-btn')
-const nav =document.querySelector('nav')
-const accordions = document.querySelectorAll('#accordion')
+const toggleMenu = document.querySelector("#toggle-menu");
+const toggleMenuBtn = document.querySelector("#toggle-menu-btn");
+const nav = document.querySelector("nav");
+const upToTop = document.querySelector("#up-to-top");
+const upToTopContainer = document.querySelector("#up-to-top-container");
+const accordions = document.querySelectorAll("#accordion");
 
+window.addEventListener("scroll", () => {
+  let navOffsetTop = window.scrollY;
+  if (navOffsetTop >= 70) {
+    nav.style.backgroundColor = "oklch(0.129 0.042 264.695)";
+    nav.style.paddingBlock = "0px";
+  } else {
+    nav.style.backgroundColor = "";
+    nav.style.paddingBlock = "";
+  }
 
-
-
-window.addEventListener('scroll' , ()=>{
-  let navOffsetTop= window.scrollY  
- if(navOffsetTop>= 70){
- nav.style.backgroundColor='oklch(0.129 0.042 264.695)'
- nav.style.paddingBlock='0px'
-}
-else{
-  nav.style.backgroundColor=''
-  nav.style.paddingBlock=''
- }
+  changeUpToTop();
+});
+window.addEventListener('DOMContentLoaded' , ()=>{
+  changeUpToTop()
 })
 
-toggleMenuBtn.addEventListener('click', ()=>{
-    toggleMenu.classList.toggle('translate-x-3/2')
-    if(toggleMenu.classList.contains('translate-x-3/2')){
-        toggleMenuBtn.innerHTML=`   <svg
+toggleMenuBtn.addEventListener("click", () => {
+  toggleMenu.classList.toggle("translate-x-3/2");
+  if (toggleMenu.classList.contains("translate-x-3/2")) {
+    toggleMenuBtn.innerHTML = `   <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 64 64"
         width="40"
@@ -108,10 +111,9 @@ toggleMenuBtn.addEventListener('click', ()=>{
           fill="url(#BTq72ScaTZ1UBmT8omo2pe)"
           d="M42,41c0,0.552-0.448,1-1,1H23c-0.552,0-1-0.448-1-1v-2c0-0.552,0.448-1,1-1h18 c0.552,0,1,0.448,1,1V41z"
         />
-      </svg>`
-
-    }else{
-        toggleMenuBtn.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+      </svg>`;
+  } else {
+    toggleMenuBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
         <linearGradient id="NHD9gZdQDJj0HA67oC7KMa" x1="32" x2="32" y1="5" y2="59.134" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
           <stop offset="0" stop-color="#1a6dff"/>
           <stop offset="1" stop-color="#c822ff"/>
@@ -127,19 +129,16 @@ toggleMenuBtn.addEventListener('click', ()=>{
           <stop offset="1" stop-color="#e6abff"/>
         </linearGradient>
         <path fill="url(#NHD9gZdQDJj0HA67oC7KMc)" d="M40.692,24.724l-1.417-1.417c-0.41-0.41-1.076-0.41-1.486,0L32,29.097l-5.789-5.789 c-0.41-0.41-1.076-0.41-1.486,0l-1.417,1.417c-0.41,0.41-0.41,1.076,0,1.486L29.097,32l-5.789,5.789c-0.41,0.41-0.41,1.076,0,1.486 l1.417,1.417c0.41,0.41,1.076,0.41,1.486,0L32,34.903l5.789,5.789c0.41,0.41,1.076,0.41,1.486,0l1.417-1.417 c0.41-0.41,0.41-1.076,0-1.486L34.903,32l5.789-5.789C41.103,25.8,41.103,25.135,40.692,24.724z"/>
-      </svg>`
-
-    }
-})
+      </svg>`;
+  }
+});
 navItems.forEach((elm) => {
   elm.addEventListener("click", (s) => {
-    if(window.innerWidth<1024){
+    if (window.innerWidth < 1024) {
       if (
         (s.target.nodeName == "A" || s.target.nodeName == "svg") &&
         s.target.parentElement == elm
       ) {
-        console.log(2);
-  
         navItems.forEach((e) => {
           e.style.height = "48px";
         });
@@ -152,28 +151,38 @@ navItems.forEach((elm) => {
         }
       }
     }
-  
   });
 });
 
-accordions.forEach(elem=>{
-  elem.addEventListener('click',()=>{
-    accordions.forEach(e=>{
-      if(e!=elem){
-        e.parentElement.style.height='48px'
-        e.querySelector('svg').classList.remove('rotate-180')
+accordions.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    accordions.forEach((e) => {
+      if (e != elem) {
+        e.parentElement.style.height = "48px";
+        e.querySelector("svg").classList.remove("rotate-180");
       }
-    })
-    console.log(elem.querySelector('svg'));
-    
-    if(elem.parentElement.clientHeight < 50){
-      elem.parentElement.style.height=elem.parentElement.scrollHeight+'px'
-   elem.querySelector('svg').classList.add('rotate-180')
-  }else{
-    elem.parentElement.style.height='48px'
-    elem.querySelector('svg').classList.remove('rotate-180')
+    });
 
+    if (elem.parentElement.clientHeight < 50) {
+      elem.parentElement.style.height = elem.parentElement.scrollHeight + "px";
+      elem.querySelector("svg").classList.add("rotate-180");
+    } else {
+      elem.parentElement.style.height = "48px";
+      elem.querySelector("svg").classList.remove("rotate-180");
     }
-    
-  })
-})
+  });
+});
+
+function changeUpToTop() {
+  if (window.scrollY > 650) {
+    upToTopContainer.style.opacity = "1";
+    upToTopContainer.style.visibility = "visible";
+  } else {
+    upToTopContainer.style.opacity = "0";
+    upToTopContainer.style.visibility = "hidden";
+  }
+
+  let windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let scrollHeight = Math.floor((window.scrollY / windowHeight) * 100);
+  upToTop.style.width = scrollHeight + "%";
+}

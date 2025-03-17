@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html dir="rtl" class="overflow-x-hidden ">
+<html dir="rtl" class="overflow-x-hidden scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
     <link href="./src/output.css" rel="stylesheet" />
+    <title>Play host</title>
   </head>
-  <body dir="rtl" class="font-[iran-sans] bg-slate-950 overflow-x-hidden ">
+  <body dir="rtl" class="font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
+
+    <!-- start up to top section  -->
+   <div id="up-to-top-container" class="fixed hidden  items-center gap-6 -right-10 top-1/2 z-100 -rotate-90 text-white text-sm opacity-0 invisible transition-all duration-500 md:flex">
+    <a href="#test">به بالا بروید</a>
+    <div class="h-0.5 w-25 bg-gray-700 ">
+      <div id="up-to-top" class="h-full w-0  bg-indigo-700  transition-all"></div>
+    </div>
+   </div>
+
+    <!-- finish up to top section  -->
     <!-- start header section -->
-    <header class="h-screen w-screen relative overflow-hidden select-none">
+    <header id="test" class="h-screen w-screen relative overflow-hidden select-none">
        <!-- start navbar section -->
       <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
-        <a href="#" class="py-3 z-50">
+        <a href="javascript:void(0)" class="py-3 z-50">
           <img class="md:hidden" src="img/navbar/logo-mobile.png" alt="" />
           <img
             class="hidden md:inline-block"
@@ -21,7 +33,7 @@
         <ul id="toggle-menu"  class= "scrollbar-hidden transition-all z-50 duration-700 ease-out bg-slate-950 text-sm absolute w-screen h-screen overflow-y-auto  divide-y-1 divide-gray-800 top-13 right-0 pt-10 pb-25 px-5 md:pr-12 translate-x-3/2 lg:static lg:overflow-visible lg:translate-0 lg:bg-transparent lg:flex  lg:gap-1.5 lg:w-auto lg:divide-y-0 lg:h-auto lg:my-0 lg:py-3 lg:px-0 xl:gap-4" >
           
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">دسته بندی ها</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">دسته بندی ها</a>
             <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -34,15 +46,15 @@
                 fill="#6D28D9"
               />
             <ul class=" w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 divide-y-1 divide-gray-800 lg:z-30 lg:absolute lg:top-4/2 lg:bg-slate-950 lg:px-0 lg:h-auto lg:w-56 lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible">
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">بازی های موبایلی</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">ایکس باکس وان</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">خرید اکانت پرمیوم</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">بازی های استیم و اوریجین</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">اکانت قانونی پلی استیشن</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">بازی های موبایلی</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">ایکس باکس وان</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">خرید اکانت پرمیوم</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">بازی های استیم و اوریجین</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">اکانت قانونی پلی استیشن</a></li>
             </ul>
           </li>
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group ">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">سرور های بازی</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">سرور های بازی</a>
              <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -56,17 +68,17 @@
               />
             </svg>
             <ul class=" w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 divide-y-1 divide-gray-800 lg:z-30 lg:absolute lg:top-4/2 lg:bg-slate-950 lg:px-0 lg:h-auto lg:w-56 lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible">
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">سرور بازی اول</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">سرور بازی دوم</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">جدول قیمت گزاری اول</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">جدول قیمت گزاری دوم</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">جدول قیمت گزاری سوم</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="#">جدول قیمت گزاری چهارم</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">سرور بازی اول</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">سرور بازی دوم</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">جدول قیمت گزاری اول</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">جدول قیمت گزاری دوم</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">جدول قیمت گزاری سوم</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white "><a href="javascript:void(0)">جدول قیمت گزاری چهارم</a></li>
 
             </ul>
           </li>
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">بازی ها</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">بازی ها</a>
             <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,61 +94,61 @@
             <ul class="  w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 lg:rounded-lg lg:z-30 lg:absolute lg:top-4/2 lg:-left-6/1 lg:bg-slate-950 lg:p-5 lg:h-auto lg:flex lg:flex-row lg:flex-wrap lg:gap-3 lg:w-4xl lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible xl:w-6xl  xl:-left-8/1">
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/1.webp" alt=""></div>
-                <a href="#" class="">تندر و شهر</a>
+                <a href="javascript:void(0)" class="">تندر و شهر</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/2.webp" alt=""></div>
-                <a href="#" class="">مسابقه مرموز</a>
+                <a href="javascript:void(0)" class="">مسابقه مرموز</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/3.webp" alt=""></div>
-                <a href="#" class="">خشم خاموش</a>
+                <a href="javascript:void(0)" class="">خشم خاموش</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/4.webp" alt=""></div>
-                <a href="#" class="">سیاه چال فانک</a>
+                <a href="javascript:void(0)" class="">سیاه چال فانک</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/5.webp" alt=""></div>
-                <a href="#" class="">اودیسه کهکشانی</a>
+                <a href="javascript:void(0)" class="">اودیسه کهکشانی</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/6.webp" alt=""></div>
-                <a href="#" class="">افسانه های جنگ</a>
+                <a href="javascript:void(0)" class="">افسانه های جنگ</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/7.webp" alt=""></div>
-                <a href="#" class="">انقلاب راه مسابقه</a>
+                <a href="javascript:void(0)" class="">انقلاب راه مسابقه</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/8.webp" alt=""></div>
-                <a href="#" class="">اودیسه ستاره ای</a>
+                <a href="javascript:void(0)" class="">اودیسه ستاره ای</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/9.webp" alt=""></div>
-                <a href="#" class="">سایبر نکسوس</a>
+                <a href="javascript:void(0)" class="">سایبر نکسوس</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/10.webp" alt=""></div>
-                <a href="#" class="">قلمرو های باستانی</a>
+                <a href="javascript:void(0)" class="">قلمرو های باستانی</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/11.webp" alt=""></div>
-                <a href="#" class="">فوتبال بیگانه</a>
+                <a href="javascript:void(0)" class="">فوتبال بیگانه</a>
               </li>
               <li class="cursor-pointer py-3 text-stone-400 rounded-lg px-3 flex items-center gap-4 transition-all duration-300 hover:text-white hover:bg-violet-700 lg:w-1/5 lg:shrink-0 lg:grow">
                 <div class="max-w-10 max-h-10 rounded-md overflow-hidden"><img class="w-1/1 h-1/1" src="img/navbar/12.webp" alt=""></div>
-                <a href="#" class="">سایه شب</a>
+                <a href="javascript:void(0)" class="">سایه شب</a>
               </li>
           
             
             </ul>
           </li>
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap ">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white ">مکان ها</a>          
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white ">مکان ها</a>          
           </li>
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group ">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">پشتیبانی</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">پشتیبانی</a>
              <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -150,13 +162,13 @@
               />
             </svg>
             <ul class=" w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 divide-y-1 divide-gray-800 lg:z-30 lg:absolute lg:top-4/2 lg:bg-slate-950 lg:px-0 lg:h-auto lg:w-56 lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible">
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">پایگاه دانش</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">سوالات متداول</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">تماس با ما</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">پایگاه دانش</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">سوالات متداول</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">تماس با ما</a></li>
             </ul>
           </li>
           <li id="nav-items" class=" max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">شرکت</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">شرکت</a>
              <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -170,14 +182,14 @@
               />
             </svg>
             <ul class=" w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 divide-y-1 divide-gray-800 lg:z-30 lg:absolute lg:top-4/2 lg:bg-slate-950 lg:px-0 lg:h-auto lg:w-56 lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible">
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">درباره ما</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">بازار یابی</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">اخبار</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">جزئیات خبر</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">درباره ما</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">بازار یابی</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">اخبار</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">جزئیات خبر</a></li>
             </ul>
           </li>
           <li id="nav-items" class="max-h-12 overflow-hidden w-11/12 flex flex-wrap justify-between items-center cursor-pointer transition-all duration-300 lg:overflow-visible  lg:w-auto lg:gap-0.5 lg:pr-1.5 lg:flex-nowrap lg:relative lg:hover:text-white group ">
-            <a href="#" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">صفحات بیشتر</a>
+            <a href="javascript:void(0)" class="grow transition-all duration-300 hover:text-violet-300 py-3 lg:grow-0 lg:hover:text-white">صفحات بیشتر</a>
              <svg
             class="lg:group-hover:rotate-180 transition-all duration-300"
               xmlns="http://www.w3.org/2000/svg"
@@ -191,9 +203,9 @@
               />
             </svg>
             <ul class=" w-1/1  pr-9  flex flex-col gap-0 transition-all duration-300 divide-y-1 divide-gray-800 lg:z-30 lg:absolute lg:top-4/2 lg:bg-slate-950 lg:px-0 lg:h-auto lg:w-56 lg:border-1 lg:border-slate-950 lg:opacity-0 lg:invisible lg:group-hover:top-1/1 lg:group-hover:opacity-100 lg:group-hover:visible">
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">المنت ها</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">ورود</a></li>
-              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="#">ثبت نام</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">المنت ها</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">ورود</a></li>
+              <li class="cursor-pointer py-3 block transition-all duration-300 hover:text-violet-300 lg:px-3 lg:hover:bg-violet-700 lg:hover:text-white"><a href="javascript:void(0)">ثبت نام</a></li>
             </ul>
           </li>
         </ul>
@@ -288,7 +300,7 @@
         </span>
         <a
           class="custom-shadow hidden group overflow-hidden max-h-10 py-1.5 px-5 z-50 text-base rounded border-2 border-violet-700 font-[kalam] transition-all duration-200 ease-in hover:bg-violet-700 hover:shadow-2xl hover:shadow-violet-700 lg:inline-block"
-          href="#"
+          href="javascript:void(0)"
         >
           <span
             class="flex flex-col gap-1 transition duration-300 -translate-y-3/5 group-hover:translate-y-0"
@@ -340,8 +352,8 @@
            <!-- finish header slider-number section  -->
             <!-- start header slider section  -->
       <div class="flex min-h-screen w-auto top-0  translate-x-  text-white">
-        <div class="w-screen h-screen shrink-0 bg-[url(../img/header/1.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25" style="background-color: rgba(0, 0, 0, 0.237);" >
-          <div class="absolute  w-1/1 h-auto z-30 px-10 sm:w-3/4 sm:px-0 lg:w-2/4">
+        <div class="w-screen h-screen shrink-0 bg-[url(../img/header/1.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25 " style="background-color: rgba(0, 0, 0, 0.237);" >
+          <div class="absolute  w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
             <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
               <span class="relative flex size-4">
                 <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
@@ -350,14 +362,14 @@
               <span > سرور ها در دسترس هستند</span>
             </div>
             <div class="my-7 flex flex-col gap-6 pl-10">
-              <h2 class="font-[kalam-bold] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent lg:text-6xl lg:h-20">اودیسه کهکشانی</h2>
+              <h2 class="font-[kalam-bold] text-4xl leading-normal bg-gradient-to-b from-white to-gray-400 h-15  bg-clip-text text-transparent sm:text-5xl lg:text-6xl lg:h-20">اودیسه کهکشانی</h2>
               <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-2 sm:gap-5">
               <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
               <div>
                 <span class="text-indigo-500">ماهانه/</span>
-                <span class="font-[kalam] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent">9,900,000</span>
+                <span class="font-[kalam] text-4xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent sm:text-5xl">9,900,000</span>
                 <span class="text-indigo-500"> تومان</span>
               </div>
               <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
@@ -369,93 +381,7 @@
             </div>
           </div>
         </div>
-        <div class="w-screen h-screen shrink-0 bg-[url(../img/header/2.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25" style="background-color: rgba(0, 0, 0, 0.237);">
-          <div class="absolute  w-1/1 h-auto z-30 px-10 sm:w-3/4 sm:px-0 lg:w-2/4">
-            <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
-              <span class="relative flex size-4">
-                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
-                <span class="relative inline-flex size-4 rounded-full bg-indigo-500"></span>
-              </span>
-              <span > سرور ها در دسترس هستند</span>
-            </div>
-            <div class="my-7 flex flex-col gap-6 pl-10">
-              <h2 class="font-[kalam-bold] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent lg:text-6xl lg:h-20">مسابقه مرموز</h2>
-              <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-            </div>
-            <div class="flex flex-col gap-5">
-              <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
-              <div>
-                <span class="text-indigo-500">ماهانه/</span>
-                <span class="font-[kalam] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent">1,200,000</span>
-                <span class="text-indigo-500"> تومان</span>
-              </div>
-              <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-                <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="w-screen h-screen shrink-0 bg-[url(../img/header/3.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25" style="background-color: rgba(0, 0, 0, 0.237);">
-          <div class="absolute  w-1/1 h-auto z-30 px-10 sm:w-3/4 sm:px-0 lg:w-2/4">
-            <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
-              <span class="relative flex size-4">
-                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
-                <span class="relative inline-flex size-4 rounded-full bg-indigo-500"></span>
-              </span>
-              <span > سرور ها در دسترس هستند</span>
-            </div>
-            <div class="my-7 flex flex-col gap-6 pl-10">
-              <h2 class="font-[kalam-bold] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent lg:text-6xl lg:h-20">خشم خاموش</h2>
-              <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-            </div>
-            <div class="flex flex-col gap-5">
-              <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
-              <div>
-                <span class="text-indigo-500">ماهانه/</span>
-                <span class="font-[kalam] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent">1,499,000</span>
-                <span class="text-indigo-500"> تومان</span>
-              </div>
-              <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-                <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="w-screen h-screen shrink-0 bg-[url(../img/header/4.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25" style="background-color: rgba(0, 0, 0, 0.237);">
-          <div class="absolute  w-1/1 h-auto z-30 px-10 sm:w-3/4 sm:px-0 lg:w-2/4">
-            <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
-              <span class="relative flex size-4">
-                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
-                <span class="relative inline-flex size-4 rounded-full bg-indigo-500"></span>
-              </span>
-              <span > سرور ها در دسترس هستند</span>
-            </div>
-            <div class="my-7 flex flex-col gap-6 pl-10">
-              <h2 class="font-[kalam-bold] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent lg:text-6xl lg:h-20">سیاه چال فانک</h2>
-              <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-            </div>
-            <div class="flex flex-col gap-5">
-              <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
-              <div>
-                <span class="text-indigo-500">ماهانه/</span>
-                <span class="font-[kalam] text-5xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent">1,599,000</span>
-                <span class="text-indigo-500"> تومان</span>
-              </div>
-              <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-                <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                  <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
                   <!-- finish header slider section  -->
 
@@ -498,12 +424,12 @@
   </div>
 
   <div class=" flex justify-center px-5  mt-30 md:px-10 lg:mt-50 lg:px-4">
-    <div class="xl:max-w-10/12 w-full px-10 py-12 bg-[url(../img/premium-section/1.webp)] bg-fixed bg-center bg-no-repeat bg-cover flex flex-col gap-3 md:gap-5 lg:relative  lg:py-15">
+    <div class="xl:max-w-10/12 w-full px-5 py-12 bg-[url(../img/premium-section/1.webp)] bg-fixed bg-center bg-no-repeat bg-cover flex flex-col gap-3 sm:px-10 md:gap-5 lg:relative  lg:py-15">
       <span class="py-1.5 px-3.5 border-2 rounded-full w-44 border-gray-600">بازی خود را شروع کنید</span>
       <h2 class="font-[kalam-bold] text-2xl bg-gradient-to-b from-white to-gray-300 bg-clip-text text-transparent lg:text-4xl lg:w-1/2">قابلیت کامل بازی خود را باز کنید    </h2>
       <p class="opacity-60 leading-7 text-sm text-justify md:w-4/5 lg:w-1/2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.    </p>
-      <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-        <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
+      <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-full cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 sm:w-70">
+        <span class="flex flex-col gap-3  text-sm text-nowrap -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0 sm:text-base">
           <span>هم اکنون سرور بازی خود را سفارش دهید</span>
           <span>هم اکنون سرور بازی خود را سفارش دهید</span>
         </span>
@@ -778,7 +704,7 @@
       </div>
       <div class="w-1/1 flex flex-col gap-5 sm:max-w-xl sm:mx-auto md:max-w-2xl lg:w-1/2">
         <span class="py-1 w-35 flex justify-center border-2 rounded-full border-gray-600 ">مکان های سرور</span>
-        <h2 class="font-[kalam]  text-3xl  h-22 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent md:h-17 lg:font-[kalam-bold]  lg:text-4xl lg:h-25 "><span class="bg-gradient-to-tr from-violet-600 to-indigo-400 bg-clip-text text-transparent text-4xl font-bold">25</span> سرورهای موجود در سراسر جهان برای بازی شما. </h2>
+        <h2 class="font-[kalam]  text-3xl leading-normal h-22 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent md:h-17 lg:font-[kalam-bold]  lg:text-4xl lg:h-30 "><span class="bg-gradient-to-tr from-violet-600 to-indigo-400 bg-clip-text text-transparent text-4xl font-bold">25</span> سرورهای موجود در سراسر جهان برای بازی شما. </h2>
        <p class="leading-8 opacity-60 ">مجموعه ما از گزینه‌های میزبانی سرور بازی، پرتقاضاترین پلتفرم‌های امروزی را در بر می‌گیرد. در ارائه‌های ما، مجموعه گسترده‌ای از ابزارها و ویژگی‌های تخصصی متناسب با هر بازی را کشف خواهید کرد، که همه آنها را با پشتکار و همگام با به‌روزرسانی‌های بازی و مود بروز نگه می‌داریم.</p>
        <div class="flex flex-wrap gap-1.5 gap-y-2.5"> 
         <span class="font-[kalam] p-2 text-xs w-auto border-2 rounded-full border-gray-600 ">لندن، انگلیس</span>
@@ -982,7 +908,7 @@
       </div>
       <div  class="h-12 overflow-hidden transition-all duration-300 ease-in ">
         <button id="accordion" class=" cursor-pointer w-full h-12 px-5 flex justify-between items-center rounded-lg bg-slate-900">
-          <span>چگونه یک ارائه دهنده میزبان بازی انتخاب کنم؟</span>
+          <span >چگونه یک ارائه دهنده میزبان بازی انتخاب کنم؟</span>
           <span class="w-7 h-7 flex justify-center items-center rounded-lg bg-gradient-to-br from-violet-700 to-indigo-500"><svg class="transition-all duration-300 ease-in" width="14" height="14" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8 316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496z"></path></g></svg></span>
         </button>
         <p class="text-zinc-400 py-5 leading-7">هنگام انتخاب ارائه دهنده میزبانی بازی، عواملی مانند مکان سرور، عملکرد، مقیاس پذیری، پشتیبانی مشتری و قیمت را در نظر بگیرید. نظرات را بخوانید و از گیمرهای دیگر توصیه بخواهید.        </p>
@@ -1058,10 +984,10 @@
       <h2 class="font-[kalam-bold] my-5 w-1/1 text-3xl  leading-normal bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent lg:text-4xl lg:w-auto">سرور خود را از دستگاه تلفن همراه مدیریت کنید      </h2>
      <p class="text-zinc-400 text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.     </p>
      <div class="flex gap-3 my-5 lg:my-0 lg:mt-3">
-      <a href="">
+      <a href="javascript:void(0)">
         <img src="img/downloading/download-appstore.webp" alt="">
       </a>
-      <a href="">
+      <a href="javascript:void(0)">
         <img src="img/downloading/download-playstore.webp" alt="">
       </a>
      </div>
@@ -1105,22 +1031,22 @@
     <div class="w-full flex justify-around lg:w-1/3">
       <div class="flex flex-col  gap-4">
         <span class="font-[kalam] mb-2">سرور بازی</span>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">تندر و شهر</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مسابقه مرموز الف</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">خشم خاموش</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سیاهچال فانک</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اودیسه کهکشانی</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">افسانه جنگ</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">تندر و شهر</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مسابقه مرموز الف</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">خشم خاموش</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سیاهچال فانک</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اودیسه کهکشانی</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">افسانه جنگ</a>
   
       </div>
       <div class="flex flex-col  gap-4">
         <span class="font-[kalam] mb-3">صفحات</span>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سرور بازی</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">پایگاه دانش</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">درباره ما</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">بازاریابی</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مکان ها</a>
-        <a href="" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اخبار</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سرور بازی</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">پایگاه دانش</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">درباره ما</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">بازاریابی</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مکان ها</a>
+        <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اخبار</a>
   
       </div>
     </div>
@@ -1160,14 +1086,15 @@
   <hr class="opacity-20">
   <div class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
     <div class="flex flex-col  gap-3 text-sm text-zinc-400 py-5 md:flex-row md:justify-between">
-      <span >کپی رایت 2024 - طراحی شده توسط روشاک      </span>
+      <span >کپی رایت 2024 - طراحی شده توسط امیر      </span>
       <div class="flex gap-7">
-        <a href="">شرایط & قوانین</a>
-        <a href="">سیاست حفظ حریم خصوصی</a>
+        <a href="javascript:void(0)">شرایط & قوانین</a>
+        <a href="javascript:void(0)">سیاست حفظ حریم خصوصی</a>
       </div>
     </div>
   </div>
  </footer>
+
 
    <!-- finish footer section  -->
     <script src="src/index.js"></script>

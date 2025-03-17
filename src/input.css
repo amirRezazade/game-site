@@ -7,10 +7,27 @@
   box-shadow: 0 0 20px 3px oklch(0.457 0.24 277.023);
   
 }
+
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
   display: none;
 }
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #020618; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:linear-gradient(to bottom , #6d20e9, oklch(0.585 0.233 277.117)); 
+  border-radius: 10px; 
+  /* visibility: hi ; */
+}
+
+
 
 @theme {
   --font-iran-sans: "iran-sans";
