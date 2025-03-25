@@ -18,9 +18,52 @@ window.addEventListener("scroll", () => {
 
   changeUpToTop();
 });
-window.addEventListener('DOMContentLoaded' , ()=>{
-  changeUpToTop()
-})
+window.addEventListener("DOMContentLoaded", () => {
+  changeUpToTop();
+});
+
+let swiper = new Swiper(".swiper", {
+  loop: true,
+  speed: 1200,
+  autoplay: {
+    delay: 4000, 
+   
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "custom",
+    renderCustom: function (swiper, current, total) {
+      return `<span class="text-white text-4xl lg:text-5xl">${current}</span><span class="text-stone-400 text-xl lg:text-2xl">/ ${total}</span>`;
+    },
+  },
+});
+let commentSwiper = new Swiper(".comment-swiper", {
+  loop: true,
+  speed: 500,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  centeredSlides:true,
+  grabCursor: true,
+  pagination: {
+    el: ".swiper--pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1280: {
+      slidesPerView: 4,
+    },
+  },
+ 
+});
+
 
 toggleMenuBtn.addEventListener("click", () => {
   toggleMenu.classList.toggle("translate-x-3/2");
@@ -186,3 +229,4 @@ function changeUpToTop() {
   let scrollHeight = Math.floor((window.scrollY / windowHeight) * 100);
   upToTop.style.width = scrollHeight + "%";
 }
+
