@@ -7,6 +7,7 @@
   box-shadow: 0 0 20px 3px oklch(0.457 0.24 277.023);
   
 }
+/* start scrillbar section  */
 
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
@@ -24,9 +25,50 @@
 ::-webkit-scrollbar-thumb {
   background:linear-gradient(to bottom , #6d20e9, oklch(0.585 0.233 277.117)); 
   border-radius: 10px; 
-  /* visibility: hi ; */
 }
+/* finish scrollbar section  */
 
+
+/* start loader section  */
+.loader-container{
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid #4f39f6;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+/* finish loader section  */
 .swiper-pagination-bullet {
   background-color: #43484d ; 
   width: 10px;

@@ -19,6 +19,11 @@ window.addEventListener("scroll", () => {
   changeUpToTop();
 });
 window.addEventListener("DOMContentLoaded", () => {
+  let content = document.querySelector('.content')
+  let loaderContent = document.querySelector('.loader-container')
+  content.classList.remove('hidden')
+  loaderContent.style.display='none'
+  
   changeUpToTop();
 });
 
