@@ -6,6 +6,12 @@ const upToTop = document.querySelector("#up-to-top");
 const upToTopContainer = document.querySelector("#up-to-top-container");
 const accordions = document.querySelectorAll("#accordion");
 
+window.addEventListener("load", () => {
+  let content = document.querySelector('.content')
+  let loaderContent = document.querySelector('.loader-container')
+  content.classList.remove('hidden')
+  loaderContent.style.display='none'
+})
 window.addEventListener("scroll", () => {
   let navOffsetTop = window.scrollY;
   if (navOffsetTop >= 70) {
@@ -19,11 +25,6 @@ window.addEventListener("scroll", () => {
   changeUpToTop();
 });
 window.addEventListener("DOMContentLoaded", () => {
-  let content = document.querySelector('.content')
-  let loaderContent = document.querySelector('.loader-container')
-  content.classList.remove('hidden')
-  loaderContent.style.display='none'
-  
   changeUpToTop();
 });
 
