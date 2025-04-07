@@ -6,7 +6,7 @@
 
 ## 🔗 لینک دمو
 
-<a href="https://amirrezazade.github.io/eduport/" t>مشاهده وب‌سایت به صورت زنده</a>
+<a href="https://amirrezazade.github.io/game-site/" t>مشاهده وب‌سایت به صورت زنده</a>
 
 
 ---
@@ -34,4 +34,4 @@
 
 1. ریپازیتوری را کلون کنید:
    ```bash
-   git clone https://github.com/amirRezazade/eduport.git
+   https://github.com/amirRezazade/game-site.git
