@@ -5,7 +5,42 @@ const nav = document.querySelector("nav");
 const upToTop = document.querySelector("#up-to-top");
 const upToTopContainer = document.querySelector("#up-to-top-container");
 const accordions = document.querySelectorAll("#accordion");
-
+const genres = {
+  4: { en: "Action", fa: "اکشن" },
+  3: { en: "Adventure", fa: "ماجراجویی" },
+  5: { en: "RPG", fa: "نقش‌آفرینی" },
+  10: { en: "Strategy", fa: "استراتژی" },
+  2: { en: "Shooter", fa: "تیراندازی" },
+  7: { en: "Puzzle", fa: "پازل" },
+  1: { en: "Racing", fa: "مسابقه‌ای" },
+  15: { en: "Sports", fa: "ورزشی" },
+  6: { en: "Fighting", fa: "مبارزه‌ای" },
+  14: { en: "Simulation", fa: "شبیه‌سازی" },
+  11: { en: "Arcade", fa: "آرکید" },
+  83: { en: "Platformer", fa: "پلتفرمر" },
+  59: { en: "Massively Multiplayer", fa: "چندنفره گسترده" },
+  51: { en: "Indie", fa: "مستقل" },
+  40: { en: "Casual", fa: "معمولی" },
+  16: { en: "Board Games", fa: "بازی‌های رومیزی" },
+  34: { en: "Card", fa: "کارتی" },
+  28: { en: "Educational", fa: "آموزشی" },
+  19: { en: "Family", fa: "خانوادگی" },
+  17: { en: "Horror", fa: "ترس و وحشت" },
+  18: { en: "Sandbox", fa: "سندباکس" },
+  32: { en: "Open World", fa: "جهان باز" },
+  33: { en: "Survival", fa: "بقا" },
+  36: { en: "Battle Royale", fa: "بتل رویال" },
+  37: { en: "Stealth", fa: "مخفیکاری" },
+  31: { en: "Visual Novel", fa: "رمان تصویری" },
+  24: { en: "Turn-Based", fa: "نوبتی" },
+  25: { en: "Tactical", fa: "تاکتیکی" },
+  30: { en: "Metroidvania", fa: "مترویدوانیا" },
+  29: { en: "Roguelike", fa: "روگلایک" },
+  38: { en: "Souls-like", fa: "سولز-لایک" },
+  26: { en: "Beat 'em up", fa: "بیت ام آپ" },
+  35: { en: "MOBA", fa: "موبا" },
+  27: { en: "MMORPG", fa: "ام‌ام‌او‌آر‌پی‌جی" }
+};
 window.addEventListener("load", () => {
   let content = document.querySelector('.content')
   let loaderContent = document.querySelector('.loader-container')
@@ -25,25 +60,85 @@ window.addEventListener("scroll", () => {
   changeUpToTop();
 });
 window.addEventListener("DOMContentLoaded", () => {
+  getHeader()
   changeUpToTop();
 });
+async function getHeader(){
+   let response = await fetch('https://api.rawg.io/api/games?key=dc71f8491ea14dc3a3f0bce8294043e4&dates=2024-01-01,2024-12-31&ordering=-added&page_size=5')
+  //  let response = await fetch('https://api.rawg.io/api/genres?key=dc71f8491ea14dc3a3f0bce8294043e4')
+   let res = await response.json()
+   let list = res.results
+   console.log(list);
+  list.forEach(elem=>{
+ document.querySelector('#header-swiper-wrapper').innerHTML+=`
+   <div class="swiper-slide">
+              <div class=" w-screen h-[80vh] md:h-screen shrink-0  bg-cover " style=" background-image: url('${elem.background_image}')" >
+              <div class="w-full h-full relative flex flex-col justify-center items-center lg:items-start lg:pr-25 bg-gradient-to-l from-black/80 to-transparent">
+              
+                <div class="absolute w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
+                  <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
+                    <span class="relative flex size-4">
+                      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                      <span class="relative inline-flex size-4 rounded-full bg-indigo-500"></span>
+                    </span>
+                    <span > سرور ها در دسترس هستند</span>
+                  </div>
+                  <div class="my-7 flex flex-col gap-6 pl-10">
+                    <h2 class="font-[kalam-bold] text-4xl leading-normal bg-gradient-to-b from-white to-gray-400 h-15  bg-clip-text text-transparent sm:text-5xl lg:text-6xl lg:h-20">${elem.name}</h2>
+                    <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                  </div>
+                  <div class="flex flex-col gap-2 sm:gap-5">
+                    <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
+                    <div>
+                      <span class="text-indigo-500">ماهانه/</span>
+                      <span class="font-[kalam] text-4xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent sm:text-5xl">9,900,000</span>
+                      <span class="text-indigo-500"> تومان</span>
+                    </div>
+                    <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
+                      <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
+                        <span>هم اکنون سرور بازی خود را سفارش دهید</span>
+                        <span>هم اکنون سرور بازی خود را سفارش دهید</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+   `
 
-let swiper = new Swiper(".swiper", {
-  loop: true,
-  speed: 1200,
-  autoplay: {
-    delay: 4000, 
+  })
    
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    type: "custom",
-    renderCustom: function (swiper, current, total) {
-      return `<span class="text-white text-4xl lg:text-5xl">${current}</span><span class="text-stone-400 text-xl lg:text-2xl">/ ${total}</span>`;
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    speed: 600,
+    autoplay: {
+      delay: 4000, 
+     
     },
-  },
-});
-let commentSwiper = new Swiper(".comment-swiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      type: "custom",
+      renderCustom: function (swiper, current, total) {
+        return `<span class="text-white text-4xl lg:text-5xl">${current}</span><span class="text-stone-400 text-xl lg:text-2xl">/ ${total}</span>`;
+      },
+    },
+    breakpoints:{
+      600:{
+      speed: 1100,
+
+      }
+    }
+  });
+  document.querySelector('#header-prev').addEventListener('click' , ()=>{
+    swiper.slidePrev()
+  })
+  document.querySelector('#header-next').addEventListener('click' , ()=>{
+    swiper.slideNext()
+  })
+}
+
+const commentSwiper = new Swiper(".comment-swiper", {
   loop: true,
   speed: 500,
   slidesPerView: 1,

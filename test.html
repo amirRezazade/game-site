@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+fetch('https://api.rawg.io/api/games?key=dc71f8491ea14dc3a3f0bce8294043e4&dates=2023-01-01,2023-12-31&ordering=-added&page_size=5')
+.then(response=> response.json()).then(res=> console.log(res))
+
+    </script>
+</body>
+</html>

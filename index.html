@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Play host</title>
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
-    <link rel="stylesheet" href="src/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/swiper-bundle.min.css">
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  
   <body dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
    <div class="loader-container">
      <span class="loader"></span>
@@ -23,10 +22,10 @@
         <div id="up-to-top" class="h-full w-0  bg-indigo-700  transition-all"></div>
       </div>
      </div>
-  
       <!-- finish up to top section  -->
+
       <!-- start header section -->
-      <header id="test" class="h-screen w-screen relative overflow-hidden select-none">
+      <header id="test" class="h-auto md:h-screen w-screen relative overflow-hidden select-none">
          <!-- start navbar section -->
         <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
           <a href="javascript:void(0)" class="py-3 z-50">
@@ -320,7 +319,7 @@
          <!-- finish navbar section -->
          <!-- start slider btn section -->
          <div class="absolute  top-1/2 w-1/1 flex px-3 justify-between ">
-          <span class="cursor-pointer z-40" onclick="swiper.slidePrev();">
+          <span id="header-prev" class="cursor-pointer z-40">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50">
               <linearGradient id="RAeVX7AeerTpT9bZbDDc3a" x1="32" x2="32" y1="4.667" y2="58.458" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
                 <stop offset="0" stop-color="#1a6dff"/>
@@ -334,7 +333,7 @@
               <path fill="url(#RAeVX7AeerTpT9bZbDDc3b)" d="M44.71,34.12L25.111,53.709C24.925,53.895,24.672,54,24.408,54H19.18l20.576-20.586 c0.781-0.781,0.781-2.048,0-2.829L19.18,10h5.225c0.265,0,0.52,0.105,0.708,0.293L44.71,29.88C45.88,31.05,45.88,32.95,44.71,34.12z"/>
             </svg>
           </span>
-          <span class="cursor-pointer z-40" onclick="swiper.slideNext();">
+          <span id="header-next" class="cursor-pointer z-40" >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50">
               <linearGradient id="oeSK2TF1wiguYWdafvfBTa" x1="32" x2="32" y1="4.833" y2="59.946" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
                 <stop offset="0" stop-color="#1a6dff"/>
@@ -349,7 +348,7 @@
             </svg>
           </span>
         </div>
-               <!-- finish slider btn section -->
+         <!-- finish slider btn section -->
   
              <!-- start header slider-number section  -->
           <div class="swiper-pagination  mb-10 ml-10 font-[iran-num] z-10 max-w-20">
@@ -357,9 +356,9 @@
           </div>
              <!-- finish header slider-number section  -->
               <!-- start header slider section  -->
-        <div class="swiper flex min-h-screen w-auto top-0 text-white">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+        <div class="swiper flex h-auto md:min-h-screen w-auto top-0 text-white">
+          <div id="header-swiper-wrapper" class="swiper-wrapper" style="background-image:url();">
+             <!-- <div class="swiper-slide">
               <div class=" w-screen h-screen shrink-0 bg-[url(../img/header/1.webp)] bg-blend-overlay bg-cover relative flex flex-col justify-center items-center lg:items-start lg:pr-25 " style="background-color: rgba(0, 0, 0, 0.237);" >
                 <div class="absolute  w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
                   <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
@@ -482,10 +481,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-           
-       
-  
+            </div>  -->
           </div>
           
         </div>
@@ -1183,7 +1179,9 @@
 
 
    <!-- finish footer section  -->
-    <script src="src/swiper-bundle.min.js"></script>
-    <script src="src/index.js"></script>
+    
+
+      <script src="assets/swiper-bundle.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
