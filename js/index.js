@@ -119,7 +119,7 @@ async function getHeader(){
    
   const swiper = new Swiper(".swiper", {
     loop: true,
-    speed: 600,
+    speed: 750,
     autoplay: {
       delay: 4000, 
      
@@ -154,29 +154,25 @@ let genreWrapper =  document.getElementById(elem.id)
     })
 }
 
-const commentSwiper = new Swiper(".comment-swiper", {
-  loop: true,
+const genresSwiper = new Swiper(".genres-swiper", {
   speed: 500,
-  slidesPerView: 1,
-  initialSlide: 4,
-  spaceBetween: 20,
-  centeredSlides:true,
+  slidesPerView:3,
+  spaceBetween: 15,
   grabCursor: true,
-  pagination: {
-    el: ".swiper--pagination",
-    clickable: true,
-  },
+  centeredSlides:true,
   breakpoints: {
-    640: {
-      slidesPerView: 2,
-
+    750: {
+      spaceBetween: 20,
+      slidesPerView: 4,
+      
     },
     1024: {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 5,
+      centeredSlides:false,
     },
-    1280: {
-      slidesPerView: 4,
+    1440: {
+      centeredSlides:false,
+      slidesPerView: 6,
     },
   },
  

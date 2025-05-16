@@ -72,9 +72,41 @@
   opacity: .6;
 }
 .swiper-slide-active .animated {
-  transition: all 2s ease;
+  transition: transform 2s ease;
   opacity: 1;
   transform: translateY(0px);
+}
+.card-parent {
+  perspective: 1500px;
+}
+.card {
+  font-weight: bold;
+  padding: 1em;
+  text-align: left;
+  height: 100%;
+  box-shadow: 0 1px 5px #00000099;
+  border-radius: 15px;
+  background-size: cover;
+  position: relative;
+  transition: transform, box-shadow , font-size .3s ease-in-out;
+  transform: rotate3d(0);
+  display: block;
+}
+.card:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 5px 20px 5px #00000044;
+}
+.card:hover .glow {
+  display: block;
+}
+.card .glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: none;
+  background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
 :root, :host {
   --font-kalam: "kalam";
@@ -662,6 +694,9 @@
   }
   .field-sizing-fixed {
     field-sizing: fixed;
+  }
+  .aspect-1\/1 {
+    aspect-ratio: 1/1;
   }
   .aspect-\[7\/9\] {
     aspect-ratio: 7/9;
@@ -1609,6 +1644,60 @@
   }
   .bg-\[url\(\.\.\/img\/games-section\/bg\.webp\)\] {
     background-image: url(../img/games-section/bg.webp);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/\)\] {
+    background-image: url(../img/genres/);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Adventure\.jpg\)\] {
+    background-image: url(../img/genres/Adventure.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Arcade\.jpg\)\] {
+    background-image: url(../img/genres/Arcade.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Board-Games\.jpg\)\] {
+    background-image: url(../img/genres/Board-Games.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Educational\.jpg\)\] {
+    background-image: url(../img/genres/Educational.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Family\.jpg\)\] {
+    background-image: url(../img/genres/Family.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Fighting\.jpg\)\] {
+    background-image: url(../img/genres/Fighting.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Indie\.jpg\)\] {
+    background-image: url(../img/genres/Indie.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Platformer\.png\)\] {
+    background-image: url(../img/genres/Platformer.png);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Puzzle\.jpg\)\] {
+    background-image: url(../img/genres/Puzzle.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/RPG\.jpg\)\] {
+    background-image: url(../img/genres/RPG.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Racing\.jpg\)\] {
+    background-image: url(../img/genres/Racing.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Shooter\.jpg\)\] {
+    background-image: url(../img/genres/Shooter.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Simulation\.jpg\)\] {
+    background-image: url(../img/genres/Simulation.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Sports\.jpg\)\] {
+    background-image: url(../img/genres/Sports.jpg);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/Strategy\.webp\)\] {
+    background-image: url(../img/genres/Strategy.webp);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/action\.webp\)\] {
+    background-image: url(../img/genres/action.webp);
+  }
+  .bg-\[url\(\.\.\/img\/genres\/card\.webp\)\] {
+    background-image: url(../img/genres/card.webp);
   }
   .bg-\[url\(\.\.\/img\/header\/1\.webp\)\] {
     background-image: url(../img/header/1.webp);
@@ -2726,6 +2815,14 @@
     &:hover {
       @media (hover: hover) {
         fill: var(--color-red-300);
+      }
+    }
+  }
+  .hover\:text-lg {
+    &:hover {
+      @media (hover: hover) {
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
       }
     }
   }
