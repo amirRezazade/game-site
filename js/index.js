@@ -41,6 +41,14 @@ const genres = {
   35: { en: "MOBA", fa: "موبا" },
   27: { en: "MMORPG", fa: "ام‌ام‌او‌آر‌پی‌جی" }
 };
+const esrbRatings = {
+  1: { en: "Everyone", fa: "(همه سنین)" },
+  2: { en: "Everyone 10+", fa: " (۱۰+)" },
+  3: { en: "Teen", fa: " (۱۳+)" },
+  4: { en: "Mature", fa: " (۱۷+)" },
+  5: { en: "Adults Only", fa: "(۱۸+)" },
+  6: { en: "Rating Pending", fa: "در انتظار رده‌بندی" },
+};
 window.addEventListener("load", () => {
   let content = document.querySelector('.content')
   let loaderContent = document.querySelector('.loader-container')
@@ -65,40 +73,39 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 async function getHeader(){
    let response = await fetch('https://api.rawg.io/api/games?key=dc71f8491ea14dc3a3f0bce8294043e4&dates=2024-01-01,2024-12-31&ordering=-added&page_size=5')
-  //  let response = await fetch('https://api.rawg.io/api/genres?key=dc71f8491ea14dc3a3f0bce8294043e4')
    let res = await response.json()
    let list = res.results
    console.log(list);
   list.forEach(elem=>{
+    
  document.querySelector('#header-swiper-wrapper').innerHTML+=`
    <div class="swiper-slide">
               <div class=" w-screen h-[80vh] md:h-screen shrink-0  bg-cover " style=" background-image: url('${elem.background_image}')" >
               <div class="w-full h-full relative flex flex-col justify-center items-center lg:items-start lg:pr-25 bg-gradient-to-l from-black/80 to-transparent">
               
-                <div class="absolute w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
+                <div class="animated absolute w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
                   <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
                     <span class="relative flex size-4">
-                      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400"></span>
                       <span class="relative inline-flex size-4 rounded-full bg-indigo-500"></span>
                     </span>
                     <span > سرور ها در دسترس هستند</span>
                   </div>
                   <div class="my-7 flex flex-col gap-6 pl-10">
-                    <h2 class="font-[kalam-bold] text-4xl leading-normal bg-gradient-to-b from-white to-gray-400 h-15  bg-clip-text text-transparent sm:text-5xl lg:text-6xl lg:h-20">${elem.name}</h2>
-                    <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                  </div>
-                  <div class="flex flex-col gap-2 sm:gap-5">
-                    <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
+                    <h2 class=" font-[kalam-bold] text-4xl leading-normal bg-gradient-to-b from-white to-gray-400 h-15  bg-clip-text text-transparent sm:text-5xl lg:text-6xl lg:h-20">${elem.name}</h2>
                     <div>
-                      <span class="text-indigo-500">ماهانه/</span>
-                      <span class="font-[kalam] text-4xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent sm:text-5xl">9,900,000</span>
-                      <span class="text-indigo-500"> تومان</span>
+                    <a href="search.html/${elem.esrb_rating ? elem.esrb_rating.id : 6}" class="px-2.5 py-0.5 border rounded-4xl text-xs transition-all duration-400 hover:text-indigo-600 ">${elem.esrb_rating ? esrbRatings[elem.esrb_rating.id].fa : esrbRatings[6].fa}</a>
                     </div>
+                    <p class=" text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                  </div>
+                  <div class=" flex flex-col gap-2 sm:gap-5">
+                      <div id="${elem.id}" class="flex gap-2 text-xs ">
+                  </div>
                     <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-                      <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
-                        <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                        <span>هم اکنون سرور بازی خود را سفارش دهید</span>
-                      </span>
+                      <a href="game.html/${elem.id}" class=" flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
+                        <span>مشاهده بازی</span>
+                        <span>مشاهده بازی</span>
+                      </ش>
                     </button>
                   </div>
                 </div>
@@ -106,7 +113,8 @@ async function getHeader(){
               </div>
             </div>
    `
-
+   getGenres(elem);
+   
   })
    
   const swiper = new Swiper(".swiper", {
@@ -137,11 +145,20 @@ async function getHeader(){
     swiper.slideNext()
   })
 }
+function getGenres(elem){
+let genreWrapper =  document.getElementById(elem.id)
+    elem.genres.forEach(e=> {
+    genreWrapper.innerHTML+=
+       `<a href="search.html/${e.id}" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">${genres[e.id].fa}</a> `
+    
+    })
+}
 
 const commentSwiper = new Swiper(".comment-swiper", {
   loop: true,
   speed: 500,
   slidesPerView: 1,
+  initialSlide: 4,
   spaceBetween: 20,
   centeredSlides:true,
   grabCursor: true,

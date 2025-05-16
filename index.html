@@ -6,6 +6,7 @@
     <title>Play host</title>
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
     <link rel="stylesheet" href="assets/swiper-bundle.min.css">
+    <link href="assets/aos.css" rel="stylesheet">
     <link href="./src/output.css" rel="stylesheet" />
   </head>
   <body dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
@@ -318,7 +319,7 @@
         </nav>
          <!-- finish navbar section -->
          <!-- start slider btn section -->
-         <div class="absolute  top-1/2 w-1/1 flex px-3 justify-between ">
+         <div class="hidden sm:flex absolute  top-1/2 w-1/1  px-3 justify-between ">
           <span id="header-prev" class="cursor-pointer z-40">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50">
               <linearGradient id="RAeVX7AeerTpT9bZbDDc3a" x1="32" x2="32" y1="4.667" y2="58.458" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
@@ -373,12 +374,13 @@
                     <p class="text-justify text-white opacity-70 leading-7 ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
                   </div>
                   <div class="flex flex-col gap-2 sm:gap-5">
-                    <span class="text-white opacity-70 text-sm">شروع قیمت از </span>
-                    <div>
-                      <span class="text-indigo-500">ماهانه/</span>
-                      <span class="font-[kalam] text-4xl bg-gradient-to-b from-white to-gray-400 h-15 bg-clip-text text-transparent sm:text-5xl">9,900,000</span>
-                      <span class="text-indigo-500"> تومان</span>
-                    </div>
+                  <div id="header-genres" class="flex flex-wrap gap-2 text-xs ">
+                    <a href="#" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:border-violet-700 ">درام</a>
+                    <a href="#" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:border-violet-700 ">درام</a>
+                    <a href="#" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:border-violet-700 ">درام</a>
+                    <a href="#" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:border-violet-700 ">درام</a>
+                  </div>
+                  
                     <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
                       <span class="flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
                         <span>هم اکنون سرور بازی خود را سفارش دهید</span>
@@ -481,7 +483,7 @@
                   </div>
                 </div>
               </div>
-            </div>  -->
+            </div>   -->
           </div>
           
         </div>
@@ -498,22 +500,22 @@
      <h2 class="font-[kalam] text-3xl my-7 bg-gradient-to-b from-white to-stone-400 bg-clip-text text-transparent lg:text-4xl lg:h-15 xl:text-5xl xl:h">سرور بازی پریمیوم</h2>
   
      <div class="flex  flex-wrap gap-10 md:justify-center md:gap-0 md:gap-y-10">
-      <div class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
+      <div data-aos="fade-left" data-aos-duration="900" class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
         <img class="size-18" src="img/premium-section/1.png" alt="photo">
         <h3 class="font-[kalam] text-xl">راه اندازی فوق العاده سریع</h3>
         <p class="opacity-60 leading-7  ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است      </p>
       </div>
-      <div class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
+      <div data-aos="fade-left" data-aos-duration="1200" class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
         <img class="size-18" src="img/premium-section/2.png" alt="photo">
         <h3 class="font-[kalam] text-xl">سخت افزار پرمیوم</h3>
         <p class="opacity-60 leading-7  ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است      </p>
       </div>
-      <div class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
+      <div data-aos="fade-left" data-aos-duration="1500" class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
         <img class="size-18" src="img/premium-section/3.png" alt="photo">
         <h3 class="font-[kalam] text-xl">محافظت DDos</h3>
         <p class="opacity-60 leading-7  ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است      </p>
       </div>
-      <div class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
+      <div data-aos="fade-left" data-aos-duration="1800" class=" flex flex-col gap-4 w-auto md:max-w-1/2 md:pl-7 lg:w-1/4 lg:text-justify xl:max-w-78">
         <img class="size-18" src="img/premium-section/4.png" alt="photo">
         <h3 class="font-[kalam] text-xl">پشتیبانی سریع</h3>
         <p class="opacity-60 leading-7  ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است      </p>
@@ -526,7 +528,7 @@
     </div>
   
     <div class=" flex justify-center px-5  mt-30 md:px-10 lg:mt-50 lg:px-4">
-      <div class="xl:max-w-10/12 w-full px-5 py-12 bg-[url(../img/premium-section/1.webp)] bg-fixed bg-center bg-no-repeat bg-cover flex flex-col gap-3 sm:px-10 md:gap-5 lg:relative  lg:py-15">
+      <div data-aos="fade-up" data-aos-duration="1300" class="xl:max-w-10/12 w-full px-5 py-12 bg-[url(../img/premium-section/1.webp)] bg-fixed bg-center bg-no-repeat bg-cover flex flex-col gap-3 sm:px-10 md:gap-5 lg:relative  lg:py-15">
         <span class="py-1.5 px-3.5 border-2 rounded-full w-44 border-gray-600">بازی خود را شروع کنید</span>
         <h2 class="font-[kalam-bold] text-2xl bg-gradient-to-b from-white to-gray-300 bg-clip-text text-transparent lg:text-4xl lg:w-1/2">قابلیت کامل بازی خود را باز کنید    </h2>
         <p class="opacity-60 leading-7 text-sm text-justify md:w-4/5 lg:w-1/2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.    </p>
@@ -779,11 +781,11 @@
   
     <!-- start server section  -->
     <section class="mt-10 pb-3 text-white px-5 lg:mt-25">
-      <div class="flex flex-wrap gap-8 lg:flex-nowrap lg:items-center xl:max-w-10/12 xl:mx-auto">
-        <div class="w-1/1 sm:max-w-xl sm:mx-auto md:max-w-2xl lg:w-1/2 ">
+      <div  class="flex flex-wrap gap-8 lg:flex-nowrap lg:items-center xl:max-w-10/12 xl:mx-auto">
+        <div data-aos="fade-left" data-aos-duration="1300" class="w-1/1 sm:max-w-xl sm:mx-auto md:max-w-2xl lg:w-1/2 ">
           <img src="img/server section/server.webp" alt="photo">
         </div>
-        <div class="w-1/1 flex flex-col gap-5 sm:max-w-xl sm:mx-auto md:max-w-2xl lg:w-1/2">
+        <div data-aos="fade-right" data-aos-duration="1300" class="w-1/1 flex flex-col gap-5 sm:max-w-xl sm:mx-auto md:max-w-2xl lg:w-1/2">
           <span class="py-1 w-35 flex justify-center border-2 rounded-full border-gray-600 ">مکان های سرور</span>
           <h2 class="font-[kalam]  text-3xl leading-normal h-22 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent md:h-17 lg:font-[kalam-bold]  lg:text-4xl lg:h-30 "><span class="bg-gradient-to-tr from-violet-600 to-indigo-400 bg-clip-text text-transparent text-4xl font-bold">25</span> سرورهای موجود در سراسر جهان برای بازی شما. </h2>
          <p class="leading-8 opacity-60 ">مجموعه ما از گزینه‌های میزبانی سرور بازی، پرتقاضاترین پلتفرم‌های امروزی را در بر می‌گیرد. در ارائه‌های ما، مجموعه گسترده‌ای از ابزارها و ویژگی‌های تخصصی متناسب با هر بازی را کشف خواهید کرد، که همه آنها را با پشتکار و همگام با به‌روزرسانی‌های بازی و مود بروز نگه می‌داریم.</p>
@@ -821,7 +823,7 @@
           </button>
         </div>
         <div class="flex flex-wrap gap-5 mt-3 md:gap-0 md:gap-y-7 md:justify-between lg:mt-14 lg:gap-x-5 xl:gap-x-8"> 
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 ease-in hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 ease-in hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/1.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -838,7 +840,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/2.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -855,7 +857,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/3.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -872,7 +874,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/4.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -889,7 +891,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/5.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -906,7 +908,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/6.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -923,7 +925,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/7.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -940,7 +942,7 @@
             </div>
     
           </div>
-          <div class="relative rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
+          <div data-aos="fade-right" class="relative  rounded-xl overflow-hidden group transition-all duration-400 hover:border-5 border-indigo-700 max-w-lg mx-auto md:w-85 md:mx-0  lg:w-1/5 lg:grow xl:max-w-72">
             <img class="w-full  aspect-[7/9] group-hover:scale-105 transition-all duration-500" src="img/games-section/8.webp" alt="photo">
             <div class="absolute w-full h-full top-0 left-0 bg-linear-to-b from-[rgba(222,222,222,0)] from-60%  to-[rgb(0,0,0)] via-100%">
               <span class="absolute top-5 left-5 rounded-md text-sm py-1 px-2 bg-pink-500">%20 تخفیف</span>
@@ -1182,6 +1184,10 @@
     
 
       <script src="assets/swiper-bundle.min.js"></script>
-    <script src="js/index.js"></script>
+      <script src="js/index.js"></script>
+      <script src="assets/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
   </body>
 </html>
