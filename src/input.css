@@ -98,12 +98,11 @@
 }
 .card {
   font-weight: bold;
-  padding: 1em;
+  /* padding: 1em; */
   text-align: left;
   height: 100%;
   box-shadow: 0 1px 5px #00000099;
   border-radius: 15px;
-  /* background-image: url(../img/games-section/2.webp); */
   background-size: cover;
   position: relative;
   transition: transform, box-shadow , font-size  .3s ease-in-out;
