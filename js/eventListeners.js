@@ -4,6 +4,7 @@ const navItems = document.querySelectorAll("#nav-items");
 const toggleMenu = document.querySelector("#toggle-menu");
 const toggleMenuBtn = document.querySelector("#toggle-menu-btn");
 const nav = document.querySelector("nav");
+const navSearchToggle = document.querySelector("#nav-search-toggle");
 
 window.addEventListener('DOMContentLoaded' , ()=>{
   changeUpToTop();
@@ -151,6 +152,11 @@ navItems.forEach((elm) => {
     }
   });
 });
+navSearchToggle.addEventListener('click',(e)=>{
+    document.querySelector('#nav-search-parent').classList.toggle('opacity-0')
+    document.querySelector('#nav-search-parent').classList.toggle('invisible')
+    
+})
 
   
 

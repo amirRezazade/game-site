@@ -167,12 +167,16 @@ async function newGems() {
    })
    const newGamesSwiper = new Swiper(".new-game-swiper", {
   speed: 500,
-  slidesPerView:3,
+  slidesPerView:2,
   spaceBetween: 15,
   grabCursor: true,
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
+   450:{
+        slidesPerView:3,
+
+    },
     750: {
       spaceBetween: 20,
       slidesPerView: 4,
@@ -263,12 +267,15 @@ async function topGems() {
    })
    const topGamesSwiper = new Swiper(".top-game-swiper", {
   speed: 500,
-  slidesPerView:3,
+  slidesPerView:2,
   spaceBetween: 15,
   grabCursor: true,
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
+    450:{
+        slidesPerView:3,
+    },
     750: {
       spaceBetween: 20,
       slidesPerView: 4,
@@ -362,12 +369,15 @@ async function featureGems() {
    })
    const featureGamesSwiper = new Swiper(".feature-game-swiper", {
   speed: 500,
-  slidesPerView:3,
+  slidesPerView:2,
   spaceBetween: 15,
   grabCursor: true,
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
+    450:{
+        slidesPerView:3,
+    },
     750: {
       spaceBetween: 20,
       slidesPerView: 4,
