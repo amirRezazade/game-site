@@ -1,12 +1,14 @@
  import {key , genres , esrbRatings , changeUpToTop , getGenres } from "./funcs.js";
-
+let card ;
+let bounds;
 const accordions = document.querySelectorAll("#accordion");
 window.addEventListener("DOMContentLoaded", () => {
-  newGems()
   getHeader()
   document.querySelector('.content').classList.remove('hidden')
   document.querySelector('.loader-container').style.display='none'
   changeUpToTop();
+  newGems()
+  topGems()
 });
 
 
@@ -66,7 +68,7 @@ async function getHeader(){
                       <div id="${elem.id}" class="flex gap-2 text-xs ">
                   </div>
                     <button  class="group custom-shadow-2 inline mt-4 max-h-9 w-70 cursor-pointer group overflow-hidden  py-1 px-3 z-50 text-base rounded  font-[kalam] transition-all duration-300 ease-in bg-gradient-to-r from-indigo-700 to-indigo-500 ">
-                      <a href="game.html/id?${elem.id}" class=" flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
+                      <a href="game.html?id=${elem.id}" class=" flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
                         <span>مشاهده بازی</span>
                         <span>مشاهده بازی</span>
                       </ش>
@@ -115,17 +117,49 @@ async function newGems() {
    let response = await res.json()
    let list = response.results
    let onTop = list.filter(g=> g.background_image && g.rating >= 4.0 && g.ratings_count >= 200)
-   console.log(list);
+   let duration = 600
    onTop.forEach(elem=>{
+      let platforms =[]
+      duration=duration < 2000 ? duration + 200 : 2000      
+    elem.platforms.forEach(e=> {
+      platforms.push( e.platform.id) 
+    })  
     document.querySelector('#new-game-swiper').innerHTML+=`
-    <a href="#" class=" swiper-slide h-auto">
-        <div class="card-parent group overflow-hidden">
-          <div class="card relative z-10 overflow-hidden">
-            <img class="w-full object-cover aspect-3/4 " src="img/genres/Fighting.jpg" alt="">
+    <a data-aos="fade-left" data-aos-duration="${duration}" href="game.html?id=${elem.id}" class=" swiper-slide h-auto ">
+        <div class="card-parent group">
+          <div class="card relative z-10 overflow-hidden ">
+            <img class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
             <div class="glow"></div>
-            <div class="flex gap-1 absolute top-3 left-3 text-white">sfssd</div>
+            <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
+            <span class="absolute top-0 right-0 p-3">${elem.rating.toFixed(1)}</span>
+           <div class="absolute bottom-0 left-0 flex items-center gap-2 text-white p-2">
+                   <span class=" ${platforms.some(id=> id==4)? '' : 'hidden'} ">
+                     <svg fill="#ffffff" width="15px" height="15px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1863.53 1016.437c31.171 0 56.47 25.299 56.47 56.47v790.589c0 16.376-7.115 31.849-19.313 42.465-10.39 9.149-23.605 14.005-37.158 14.005-2.484 0-5.082-.113-7.567-.452l-903.53-123.331c-28.008-3.84-48.903-27.784-48.903-56.02v-667.256c0-31.171 25.3-56.47 56.471-56.47Zm-1129.412 0c31.171 0 56.47 25.299 56.47 56.47v634.504c0 16.376-7.115 31.85-19.426 42.579-10.39 9.035-23.491 13.891-37.044 13.891-2.485 0-5.196-.113-7.68-.564L48.79 1669.35C20.78 1665.51 0 1641.68 0 1613.444v-540.537c0-31.171 25.299-56.47 56.47-56.47Zm-7.726-859.855c16.151-2.372 32.415 2.597 44.725 13.327 12.424 10.73 19.426 26.315 19.426 42.579V846.99c0 31.285-25.186 56.47-56.47 56.47H56.424c-31.171 0-56.47-25.185-56.47-56.47V306.455c0-28.123 20.781-52.066 48.79-55.906ZM1855.974.474c16.15-2.033 32.414 2.71 44.724 13.44 12.198 10.73 19.313 26.203 19.313 42.466v790.588c0 31.285-25.299 56.471-56.47 56.471H960.01c-31.171 0-56.47-25.186-56.47-56.47V179.711c0-28.235 20.78-52.066 48.903-55.906Z" fill-rule="evenodd"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==5)? '' : 'hidden'} ">
+                     <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 346.435 346.435" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M191.514,126.182c0-11.64,7.65-21.86,18.561-25.277c-3.146-3.882-6.971-6.218-11.145-6.803 c-0.889-0.252-1.567-0.343-2.281-0.343c-2.955,0-7.146,0.46-10.737,1.862c-3.614,1.42-6.548,3.747-9.463,3.747h-0.757 l-0.541-0.556c-4.512-4.5-11.048-5.446-15.747-5.446c-3.861,0-6.671,0.64-7.035,0.742l-0.252,0.132 c-6.074,0.829-11.337,5.317-14.805,12.61c-3.609,7.563-4.834,17.156-3.474,27.013c2.729,19.744,15.48,34.969,28.346,33.173 c4.53-0.622,8.632-3.285,11.904-7.71l1.475-1.987l1.482,1.967c3.258,4.354,7.329,6.975,11.797,7.602 c8.274,1.099,16.808-4.771,22.506-15.09C199.704,148.823,191.514,138.405,191.514,126.182z"></path> </g> <g> <path d="M200.797,68.965c-3.477,0.609-10.238,2.387-15.065,7.206c-4.849,4.852-6.608,11.593-7.206,15.072 c3.477-0.622,10.221-2.384,15.066-7.206C198.426,79.203,200.185,72.439,200.797,68.965z"></path> </g> <g> <path d="M322.437,0H23.986C12.229,0,2.669,9.56,2.669,21.317v224.808c0,11.745,9.56,21.317,21.317,21.317h84.295 c6.254,8.105,18.903,27.586,14.469,36.833c-1.79,3.729-6.659,5.62-14.505,5.62c-42.42,0-43.64,15.03-43.64,16.754v19.785H281.82 v-25.868l-1.189-0.907c-0.528-0.402-13.162-9.752-44.375-9.752c-6.821,0-8.179-2.672-8.617-3.536 c-3.909-7.626,6.647-27.353,14.754-38.923h80.044c11.764,0,21.329-9.566,21.329-21.312V21.317C343.76,9.56,334.2,0,322.437,0z M222.204,309.127c2.324,4.558,7.05,6.857,14.052,6.857c23.694,0,35.849,5.705,39.487,7.771v16.598H70.694l-0.006-13.571 c0.318-2.99,7.68-10.797,37.563-10.797c10.391,0,17.12-3.05,20.002-9.085c5.563-11.631-5.951-30.402-12.385-39.464h119.18 C228.714,277.134,216.56,298.114,222.204,309.127z M163.162,245.08c0-5.536,4.501-10.04,10.052-10.04 c5.54,0,10.043,4.498,10.043,10.04c0,5.548-4.504,10.052-10.043,10.052C167.663,255.12,163.162,250.628,163.162,245.08z M325.487,222.321H20.948V22.137h304.54V222.321z"></path> </g> </g> </g> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==186)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m24 12c0-.001 0-.001 0-.002 0-3.618-1.606-6.861-4.144-9.054l-.015-.013c-1.91 1.023-3.548 2.261-4.967 3.713l-.004.004c.044.046.087.085.131.132 3.719 4.012 7.106 9.73 6.546 12.471 1.53-1.985 2.452-4.508 2.452-7.246 0-.002 0-.004 0-.006z"></path><path d="m12.591 3.955c1.68-1.104 3.699-1.833 5.872-2.022l.048-.003c-1.837-1.21-4.09-1.929-6.511-1.929-2.171 0-4.207.579-5.962 1.591l.058-.031c.658.567 2.837.781 5.484 2.4.143.089.316.142.502.142.189 0 .365-.055.513-.149l-.004.002z"></path><path d="m9.166 6.778c.046-.049.093-.09.138-.138-1.17-1.134-2.446-2.174-3.806-3.1l-.099-.064c-.302-.221-.681-.354-1.091-.354-.146 0-.288.017-.425.049l.013-.002c-2.398 2.198-3.896 5.344-3.896 8.84 0 2.909 1.037 5.576 2.762 7.651l-.016-.02c-1.031-2.547 2.477-8.672 6.419-12.862z"></path><path d="m12.084 9.198c-3.962 3.503-9.477 8.73-8.632 11.218 2.174 2.213 5.198 3.584 8.542 3.584 3.493 0 6.637-1.496 8.826-3.883l.008-.009c.486-2.618-4.755-7.337-8.744-10.91z"></path></g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==187)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>playstation</title> <path d="M3.262 24.248c-2.374-0.681-2.767-2.084-1.69-2.899 0.776-0.51 1.668-0.954 2.612-1.288l0.087-0.027 7.017-2.516v2.89l-5.030 1.839c-0.881 0.339-1.031 0.79-0.299 1.032 0.365 0.093 0.783 0.147 1.214 0.147 0.615 0 1.204-0.109 1.749-0.308l-0.035 0.011 2.422-0.882v2.592c-0.15 0.037-0.32 0.055-0.487 0.091-0.775 0.136-1.667 0.214-2.577 0.214-1.778 0-3.486-0.298-5.078-0.846l0.11 0.033zM18.049 24.544l7.868-2.843c0.893-0.322 1.032-0.781 0.307-1.022-0.363-0.089-0.779-0.14-1.208-0.14-0.622 0-1.22 0.108-1.774 0.305l0.037-0.011-5.255 1.874v-2.983l0.3-0.106c1.050-0.349 2.284-0.62 3.557-0.761l0.083-0.008c0.468-0.050 1.010-0.078 1.559-0.078 1.877 0 3.677 0.331 5.343 0.939l-0.108-0.035c2.309 0.751 2.549 1.839 1.969 2.589-0.559 0.557-1.235 0.998-1.988 1.282l-0.039 0.013-10.677 3.883v-2.869zM12.231 4.248v21.927l4.892 1.576v-18.39c0-0.862 0.38-1.438 0.992-1.238 0.795 0.225 0.95 1.017 0.95 1.881v7.342c3.050 1.491 5.451-0.003 5.451-3.939 0-4.045-1.407-5.842-5.546-7.282-1.785-0.648-4.040-1.294-6.347-1.805l-0.389-0.072z"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==7)? '' : 'hidden'} ">
+                    <svg height="15px" width="15" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M10.766,264.966v182.186c0.009,35.829,29.029,64.84,64.848,64.848h360.772 c35.828-0.009,64.848-29.02,64.848-64.848V264.966v-0.753H10.766V264.966z M454.238,360.233c7.754,0,14.037,6.284,14.037,14.037 c0,7.754-6.283,14.037-14.037,14.037c-7.753,0-14.037-6.283-14.037-14.037C440.201,366.517,446.485,360.233,454.238,360.233z M423.731,329.708c7.754,0,14.037,6.266,14.037,14.037c0,7.736-6.283,14.037-14.037,14.037c-7.754,0-14.046-6.301-14.046-14.037 C409.685,335.974,415.977,329.708,423.731,329.708z M423.731,390.74c7.754,0,14.037,6.284,14.037,14.037 c0,7.754-6.283,14.037-14.037,14.037c-7.754,0-14.046-6.283-14.046-14.037C409.685,397.024,415.977,390.74,423.731,390.74z M393.207,360.233c7.744,0,14.037,6.284,14.037,14.037c0,7.754-6.292,14.037-14.037,14.037c-7.762,0-14.037-6.283-14.037-14.037 C379.169,366.517,385.444,360.233,393.207,360.233z M154.469,298.842h203.066V449.69H154.469V298.842z M48.406,362.657h30.21 v-30.21h23.226v30.21h30.21v23.226h-30.21v30.21H78.616v-30.21h-30.21V362.657z"></path> <path class="st0" d="M436.385,0H75.614C39.795,0.009,10.775,29.02,10.766,64.848v182.196v0.735h490.468v-0.735V64.848 C501.234,29.02,472.214,0.009,436.385,0z M386.678,206.174H125.322V50.845h261.356V206.174z"></path> </g> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==3)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>ios</title> <path d="M1.119 12.633v10.576h2.49v-10.576h-2.49zM11.882 10.768c2.553 0 4.193 2.040 4.193 5.232 0 3.217-1.64 5.257-4.193 5.257-2.578 0-4.206-2.040-4.206-5.257 0-3.192 1.627-5.232 4.206-5.232zM25.45 8.578c-3.129 0-5.357 1.727-5.357 4.293 0 2.040 1.264 3.317 3.918 3.93l1.865 0.451c1.815 0.413 2.553 1.014 2.553 2.053 0 1.202-1.214 2.053-2.941 2.053-1.765 0-3.092-0.864-3.229-2.19h-2.503c0.1 2.654 2.278 4.281 5.582 4.281 3.492 0 5.683-1.715 5.683-4.443 0-2.14-1.252-3.354-4.155-4.018l-1.665-0.376c-1.765-0.426-2.491-0.989-2.491-1.94 0-1.202 1.101-2.003 2.729-2.003 1.64 0 2.766 0.814 2.891 2.153h2.453c-0.063-2.528-2.153-4.243-5.332-4.243zM11.882 8.578c-4.205-0-6.834 2.866-6.834 7.422 0 4.594 2.628 7.447 6.834 7.447 4.181 0 6.821-2.854 6.821-7.447 0-4.556-2.641-7.422-6.822-7.422zM2.357 8.553c-0.007-0-0.016-0-0.024-0-0.747 0-1.352 0.605-1.352 1.352s0.605 1.352 1.352 1.352c0.009 0 0.017-0 0.026-0l-0.001 0c0.011 0 0.024 0.001 0.037 0.001 0.747 0 1.352-0.605 1.352-1.352s-0.605-1.352-1.352-1.352c-0.013 0-0.026 0-0.039 0.001l0.002-0z"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==21)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="b75708d097f2188dff6617b0f00f7c43"> <path display="inline" d="M120.606,169h270.788v220.663c0,13.109-10.628,23.737-23.721,23.737h-27.123v67.203 c0,17.066-13.612,30.897-30.415,30.897c-16.846,0-30.438-13.831-30.438-30.897v-67.203h-47.371v67.203 c0,17.066-13.639,30.897-30.441,30.897c-16.799,0-30.437-13.831-30.437-30.897v-67.203h-27.099 c-13.096,0-23.744-10.628-23.744-23.737V169z M67.541,167.199c-16.974,0-30.723,13.963-30.723,31.2v121.937 c0,17.217,13.749,31.204,30.723,31.204c16.977,0,30.723-13.987,30.723-31.204V198.399 C98.264,181.162,84.518,167.199,67.541,167.199z M391.395,146.764H120.606c3.342-38.578,28.367-71.776,64.392-90.998 l-25.746-37.804c-3.472-5.098-2.162-12.054,2.946-15.525c5.102-3.471,12.044-2.151,15.533,2.943l28.061,41.232 c15.558-5.38,32.446-8.469,50.208-8.469c17.783,0,34.672,3.089,50.229,8.476L334.29,5.395c3.446-5.108,10.41-6.428,15.512-2.957 c5.108,3.471,6.418,10.427,2.946,15.525l-25.725,37.804C363.047,74.977,388.055,108.175,391.395,146.764z M213.865,94.345 c0-8.273-6.699-14.983-14.969-14.983c-8.291,0-14.99,6.71-14.99,14.983c0,8.269,6.721,14.976,14.99,14.976 S213.865,102.614,213.865,94.345z M329.992,94.345c0-8.273-6.722-14.983-14.99-14.983c-8.291,0-14.97,6.71-14.97,14.983 c0,8.269,6.679,14.976,14.97,14.976C323.271,109.321,329.992,102.614,329.992,94.345z M444.48,167.156 c-16.956,0-30.744,13.984-30.744,31.222v121.98c0,17.238,13.788,31.226,30.744,31.226c16.978,0,30.701-13.987,30.701-31.226 v-121.98C475.182,181.14,461.458,167.156,444.48,167.156z"> </path> </g> </g></svg>
+                    </span>
+            
+           </div>
+            
+            </div>
           </div>
-          <div dir="ltr" class=" px-1.5 py-2 opacity-0 invisible transition-all duration-300 -translate-y-1/1 truncate text-white -z-10 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible">name of  gamegamegamegamegamegame</div>
+          <div dir="ltr" class="text-center px-1.5 py-2 opacity-0 invisible transition-all duration-300 -translate-y-1/1 truncate text-white -z-10 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible">${elem.name || elem.slug}</div>
         </div>
       </a>
     `
@@ -135,54 +169,168 @@ async function newGems() {
   slidesPerView:3,
   spaceBetween: 15,
   grabCursor: true,
+  initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
     750: {
       spaceBetween: 20,
       slidesPerView: 4,
+      initialSlide:0 ,
       
     },
     1024: {
+      spaceBetween: 20,
       slidesPerView: 5,
       centeredSlides:false,
+      initialSlide:0 ,
     },
     1440: {
+      spaceBetween: 20,
       centeredSlides:false,
       slidesPerView: 7,
+      initialSlide:0 ,
     },
   },
  
  });
-  }
-
+     card = document.querySelectorAll('.card');
+  card.forEach(elem=>{
+    elem.addEventListener('mousemove', (e) => {
+        bounds = elem.getBoundingClientRect();
+          rotateToMouse(elem , e)
+      });
+  })
+  card.forEach(elem=>{
+      elem.addEventListener('mouseleave', () => {
+        elem.style.transform = '';
+        elem.style.background = '';
+      });
   
+  })
+  }
+async function topGems() {
+   let res = await fetch(`https://api.rawg.io/api/games?key=${key}&ordering=-metacritic&dates=2015-01-01,2025-12-31&page_size=20`)
+   let response = await res.json()
+   let list = response.results
+   let onTop = list.filter(g=> g.background_image && g.rating >= 4.0 && g.ratings_count >= 800)
+    let duration = 800
+   onTop.forEach(elem=>{
+      duration=duration < 2000 ? duration + 200 : 2000      
+      let platforms =[]
+    elem.platforms.forEach(e=> {
+      platforms.push( e.platform.id) 
+    })  
+    document.querySelector('#top-game-swiper').innerHTML+=`
+    <a data-aos="fade-left" data-aos-duration="${duration}" href="game.html?id=${elem.id}" class=" swiper-slide h-auto ">
+        <div class="card-parent group">
+          <div class="card relative z-10 overflow-hidden ">
+            <img class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
+            <div class="glow"></div>
+            <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
+            <span class="absolute top-0 right-0 p-3">${elem.rating.toFixed(1)}</span>
+           <div class="absolute bottom-0 left-0 flex items-center gap-2 text-white p-2">
+                   <span class=" ${platforms.some(id=> id==4)? '' : 'hidden'} ">
+                     <svg fill="#ffffff" width="15px" height="15px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1863.53 1016.437c31.171 0 56.47 25.299 56.47 56.47v790.589c0 16.376-7.115 31.849-19.313 42.465-10.39 9.149-23.605 14.005-37.158 14.005-2.484 0-5.082-.113-7.567-.452l-903.53-123.331c-28.008-3.84-48.903-27.784-48.903-56.02v-667.256c0-31.171 25.3-56.47 56.471-56.47Zm-1129.412 0c31.171 0 56.47 25.299 56.47 56.47v634.504c0 16.376-7.115 31.85-19.426 42.579-10.39 9.035-23.491 13.891-37.044 13.891-2.485 0-5.196-.113-7.68-.564L48.79 1669.35C20.78 1665.51 0 1641.68 0 1613.444v-540.537c0-31.171 25.299-56.47 56.47-56.47Zm-7.726-859.855c16.151-2.372 32.415 2.597 44.725 13.327 12.424 10.73 19.426 26.315 19.426 42.579V846.99c0 31.285-25.186 56.47-56.47 56.47H56.424c-31.171 0-56.47-25.185-56.47-56.47V306.455c0-28.123 20.781-52.066 48.79-55.906ZM1855.974.474c16.15-2.033 32.414 2.71 44.724 13.44 12.198 10.73 19.313 26.203 19.313 42.466v790.588c0 31.285-25.299 56.471-56.47 56.471H960.01c-31.171 0-56.47-25.186-56.47-56.47V179.711c0-28.235 20.78-52.066 48.903-55.906Z" fill-rule="evenodd"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==5)? '' : 'hidden'} ">
+                     <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 346.435 346.435" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M191.514,126.182c0-11.64,7.65-21.86,18.561-25.277c-3.146-3.882-6.971-6.218-11.145-6.803 c-0.889-0.252-1.567-0.343-2.281-0.343c-2.955,0-7.146,0.46-10.737,1.862c-3.614,1.42-6.548,3.747-9.463,3.747h-0.757 l-0.541-0.556c-4.512-4.5-11.048-5.446-15.747-5.446c-3.861,0-6.671,0.64-7.035,0.742l-0.252,0.132 c-6.074,0.829-11.337,5.317-14.805,12.61c-3.609,7.563-4.834,17.156-3.474,27.013c2.729,19.744,15.48,34.969,28.346,33.173 c4.53-0.622,8.632-3.285,11.904-7.71l1.475-1.987l1.482,1.967c3.258,4.354,7.329,6.975,11.797,7.602 c8.274,1.099,16.808-4.771,22.506-15.09C199.704,148.823,191.514,138.405,191.514,126.182z"></path> </g> <g> <path d="M200.797,68.965c-3.477,0.609-10.238,2.387-15.065,7.206c-4.849,4.852-6.608,11.593-7.206,15.072 c3.477-0.622,10.221-2.384,15.066-7.206C198.426,79.203,200.185,72.439,200.797,68.965z"></path> </g> <g> <path d="M322.437,0H23.986C12.229,0,2.669,9.56,2.669,21.317v224.808c0,11.745,9.56,21.317,21.317,21.317h84.295 c6.254,8.105,18.903,27.586,14.469,36.833c-1.79,3.729-6.659,5.62-14.505,5.62c-42.42,0-43.64,15.03-43.64,16.754v19.785H281.82 v-25.868l-1.189-0.907c-0.528-0.402-13.162-9.752-44.375-9.752c-6.821,0-8.179-2.672-8.617-3.536 c-3.909-7.626,6.647-27.353,14.754-38.923h80.044c11.764,0,21.329-9.566,21.329-21.312V21.317C343.76,9.56,334.2,0,322.437,0z M222.204,309.127c2.324,4.558,7.05,6.857,14.052,6.857c23.694,0,35.849,5.705,39.487,7.771v16.598H70.694l-0.006-13.571 c0.318-2.99,7.68-10.797,37.563-10.797c10.391,0,17.12-3.05,20.002-9.085c5.563-11.631-5.951-30.402-12.385-39.464h119.18 C228.714,277.134,216.56,298.114,222.204,309.127z M163.162,245.08c0-5.536,4.501-10.04,10.052-10.04 c5.54,0,10.043,4.498,10.043,10.04c0,5.548-4.504,10.052-10.043,10.052C167.663,255.12,163.162,250.628,163.162,245.08z M325.487,222.321H20.948V22.137h304.54V222.321z"></path> </g> </g> </g> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==186)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m24 12c0-.001 0-.001 0-.002 0-3.618-1.606-6.861-4.144-9.054l-.015-.013c-1.91 1.023-3.548 2.261-4.967 3.713l-.004.004c.044.046.087.085.131.132 3.719 4.012 7.106 9.73 6.546 12.471 1.53-1.985 2.452-4.508 2.452-7.246 0-.002 0-.004 0-.006z"></path><path d="m12.591 3.955c1.68-1.104 3.699-1.833 5.872-2.022l.048-.003c-1.837-1.21-4.09-1.929-6.511-1.929-2.171 0-4.207.579-5.962 1.591l.058-.031c.658.567 2.837.781 5.484 2.4.143.089.316.142.502.142.189 0 .365-.055.513-.149l-.004.002z"></path><path d="m9.166 6.778c.046-.049.093-.09.138-.138-1.17-1.134-2.446-2.174-3.806-3.1l-.099-.064c-.302-.221-.681-.354-1.091-.354-.146 0-.288.017-.425.049l.013-.002c-2.398 2.198-3.896 5.344-3.896 8.84 0 2.909 1.037 5.576 2.762 7.651l-.016-.02c-1.031-2.547 2.477-8.672 6.419-12.862z"></path><path d="m12.084 9.198c-3.962 3.503-9.477 8.73-8.632 11.218 2.174 2.213 5.198 3.584 8.542 3.584 3.493 0 6.637-1.496 8.826-3.883l.008-.009c.486-2.618-4.755-7.337-8.744-10.91z"></path></g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==187)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>playstation</title> <path d="M3.262 24.248c-2.374-0.681-2.767-2.084-1.69-2.899 0.776-0.51 1.668-0.954 2.612-1.288l0.087-0.027 7.017-2.516v2.89l-5.030 1.839c-0.881 0.339-1.031 0.79-0.299 1.032 0.365 0.093 0.783 0.147 1.214 0.147 0.615 0 1.204-0.109 1.749-0.308l-0.035 0.011 2.422-0.882v2.592c-0.15 0.037-0.32 0.055-0.487 0.091-0.775 0.136-1.667 0.214-2.577 0.214-1.778 0-3.486-0.298-5.078-0.846l0.11 0.033zM18.049 24.544l7.868-2.843c0.893-0.322 1.032-0.781 0.307-1.022-0.363-0.089-0.779-0.14-1.208-0.14-0.622 0-1.22 0.108-1.774 0.305l0.037-0.011-5.255 1.874v-2.983l0.3-0.106c1.050-0.349 2.284-0.62 3.557-0.761l0.083-0.008c0.468-0.050 1.010-0.078 1.559-0.078 1.877 0 3.677 0.331 5.343 0.939l-0.108-0.035c2.309 0.751 2.549 1.839 1.969 2.589-0.559 0.557-1.235 0.998-1.988 1.282l-0.039 0.013-10.677 3.883v-2.869zM12.231 4.248v21.927l4.892 1.576v-18.39c0-0.862 0.38-1.438 0.992-1.238 0.795 0.225 0.95 1.017 0.95 1.881v7.342c3.050 1.491 5.451-0.003 5.451-3.939 0-4.045-1.407-5.842-5.546-7.282-1.785-0.648-4.040-1.294-6.347-1.805l-0.389-0.072z"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==7)? '' : 'hidden'} ">
+                    <svg height="15px" width="15" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M10.766,264.966v182.186c0.009,35.829,29.029,64.84,64.848,64.848h360.772 c35.828-0.009,64.848-29.02,64.848-64.848V264.966v-0.753H10.766V264.966z M454.238,360.233c7.754,0,14.037,6.284,14.037,14.037 c0,7.754-6.283,14.037-14.037,14.037c-7.753,0-14.037-6.283-14.037-14.037C440.201,366.517,446.485,360.233,454.238,360.233z M423.731,329.708c7.754,0,14.037,6.266,14.037,14.037c0,7.736-6.283,14.037-14.037,14.037c-7.754,0-14.046-6.301-14.046-14.037 C409.685,335.974,415.977,329.708,423.731,329.708z M423.731,390.74c7.754,0,14.037,6.284,14.037,14.037 c0,7.754-6.283,14.037-14.037,14.037c-7.754,0-14.046-6.283-14.046-14.037C409.685,397.024,415.977,390.74,423.731,390.74z M393.207,360.233c7.744,0,14.037,6.284,14.037,14.037c0,7.754-6.292,14.037-14.037,14.037c-7.762,0-14.037-6.283-14.037-14.037 C379.169,366.517,385.444,360.233,393.207,360.233z M154.469,298.842h203.066V449.69H154.469V298.842z M48.406,362.657h30.21 v-30.21h23.226v30.21h30.21v23.226h-30.21v30.21H78.616v-30.21h-30.21V362.657z"></path> <path class="st0" d="M436.385,0H75.614C39.795,0.009,10.775,29.02,10.766,64.848v182.196v0.735h490.468v-0.735V64.848 C501.234,29.02,472.214,0.009,436.385,0z M386.678,206.174H125.322V50.845h261.356V206.174z"></path> </g> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==3)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>ios</title> <path d="M1.119 12.633v10.576h2.49v-10.576h-2.49zM11.882 10.768c2.553 0 4.193 2.040 4.193 5.232 0 3.217-1.64 5.257-4.193 5.257-2.578 0-4.206-2.040-4.206-5.257 0-3.192 1.627-5.232 4.206-5.232zM25.45 8.578c-3.129 0-5.357 1.727-5.357 4.293 0 2.040 1.264 3.317 3.918 3.93l1.865 0.451c1.815 0.413 2.553 1.014 2.553 2.053 0 1.202-1.214 2.053-2.941 2.053-1.765 0-3.092-0.864-3.229-2.19h-2.503c0.1 2.654 2.278 4.281 5.582 4.281 3.492 0 5.683-1.715 5.683-4.443 0-2.14-1.252-3.354-4.155-4.018l-1.665-0.376c-1.765-0.426-2.491-0.989-2.491-1.94 0-1.202 1.101-2.003 2.729-2.003 1.64 0 2.766 0.814 2.891 2.153h2.453c-0.063-2.528-2.153-4.243-5.332-4.243zM11.882 8.578c-4.205-0-6.834 2.866-6.834 7.422 0 4.594 2.628 7.447 6.834 7.447 4.181 0 6.821-2.854 6.821-7.447 0-4.556-2.641-7.422-6.822-7.422zM2.357 8.553c-0.007-0-0.016-0-0.024-0-0.747 0-1.352 0.605-1.352 1.352s0.605 1.352 1.352 1.352c0.009 0 0.017-0 0.026-0l-0.001 0c0.011 0 0.024 0.001 0.037 0.001 0.747 0 1.352-0.605 1.352-1.352s-0.605-1.352-1.352-1.352c-0.013 0-0.026 0-0.039 0.001l0.002-0z"></path> </g></svg>
+                    </span>
+                    <span class=" ${platforms.some(id=> id==21)? '' : 'hidden'} ">
+                    <svg fill="#ffffff" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="b75708d097f2188dff6617b0f00f7c43"> <path display="inline" d="M120.606,169h270.788v220.663c0,13.109-10.628,23.737-23.721,23.737h-27.123v67.203 c0,17.066-13.612,30.897-30.415,30.897c-16.846,0-30.438-13.831-30.438-30.897v-67.203h-47.371v67.203 c0,17.066-13.639,30.897-30.441,30.897c-16.799,0-30.437-13.831-30.437-30.897v-67.203h-27.099 c-13.096,0-23.744-10.628-23.744-23.737V169z M67.541,167.199c-16.974,0-30.723,13.963-30.723,31.2v121.937 c0,17.217,13.749,31.204,30.723,31.204c16.977,0,30.723-13.987,30.723-31.204V198.399 C98.264,181.162,84.518,167.199,67.541,167.199z M391.395,146.764H120.606c3.342-38.578,28.367-71.776,64.392-90.998 l-25.746-37.804c-3.472-5.098-2.162-12.054,2.946-15.525c5.102-3.471,12.044-2.151,15.533,2.943l28.061,41.232 c15.558-5.38,32.446-8.469,50.208-8.469c17.783,0,34.672,3.089,50.229,8.476L334.29,5.395c3.446-5.108,10.41-6.428,15.512-2.957 c5.108,3.471,6.418,10.427,2.946,15.525l-25.725,37.804C363.047,74.977,388.055,108.175,391.395,146.764z M213.865,94.345 c0-8.273-6.699-14.983-14.969-14.983c-8.291,0-14.99,6.71-14.99,14.983c0,8.269,6.721,14.976,14.99,14.976 S213.865,102.614,213.865,94.345z M329.992,94.345c0-8.273-6.722-14.983-14.99-14.983c-8.291,0-14.97,6.71-14.97,14.983 c0,8.269,6.679,14.976,14.97,14.976C323.271,109.321,329.992,102.614,329.992,94.345z M444.48,167.156 c-16.956,0-30.744,13.984-30.744,31.222v121.98c0,17.238,13.788,31.226,30.744,31.226c16.978,0,30.701-13.987,30.701-31.226 v-121.98C475.182,181.14,461.458,167.156,444.48,167.156z"> </path> </g> </g></svg>
+                    </span>
+            
+           </div>
+            
+            </div>
+          </div>
+          <div dir="ltr" class="text-center px-1.5 py-2 opacity-0 invisible transition-all duration-300 -translate-y-1/1 truncate text-white -z-10 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible">${elem.name || elem.slug}</div>
+        </div>
+      </a>
+    `
+   })
+   const topGamesSwiper = new Swiper(".top-game-swiper", {
+  speed: 500,
+  slidesPerView:3,
+  spaceBetween: 15,
+  grabCursor: true,
+  initialSlide:1 ,
+  centeredSlides:true,
+  breakpoints: {
+    750: {
+      spaceBetween: 20,
+      slidesPerView: 4,
+     initialSlide:0 ,
+      
+    },
+    1024: {
+      spaceBetween: 20,
+      slidesPerView: 5,
+      centeredSlides:false,
+     initialSlide:0 ,
+    },
+    1440: {
+      spaceBetween: 20,
+      centeredSlides:false,
+      slidesPerView: 7,
+      initialSlide:0 ,
+    },
+  },
+ 
+ });
+     card = document.querySelectorAll('.card');
+  card.forEach(elem=>{
+    elem.addEventListener('mousemove', (e) => {
+        bounds = elem.getBoundingClientRect();
+          rotateToMouse(elem , e)
+      });
+  })
+  card.forEach(elem=>{
+      elem.addEventListener('mouseleave', () => {
+        elem.style.transform = '';
+        elem.style.background = '';
+      });
+  
+  })
+  }
 
 const genresSwiper = new Swiper(".genres-swiper", {
   speed: 500,
   slidesPerView:3,
   spaceBetween: 15,
   grabCursor: true,
+  initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
     750: {
       spaceBetween: 20,
       slidesPerView: 4,
-      
-    },
-    1024: {
-      slidesPerView: 5,
-      centeredSlides:false,
-    },
-    1440: {
-      centeredSlides:false,
-      slidesPerView: 7,
+        initialSlide:0 ,
+      },
+      1024: {
+        slidesPerView: 5,
+        centeredSlides:false,
+        initialSlide:0 ,
+      },
+      1440: {
+        centeredSlides:false,
+        slidesPerView: 7,
+        initialSlide:0 ,
     },
   },
  
 });
-
-
-
 
 accordions.forEach((elem) => {
   elem.addEventListener("click", () => {
@@ -202,15 +350,7 @@ accordions.forEach((elem) => {
     }
   });
 });
-
-
-
-// بعد از اینکه DOM کارت‌ها ساخته شد
-setTimeout(() => {
-   const card = document.querySelectorAll('.card');
-      let bounds;
-  
-  function rotateToMouse(elem , e) {        
+function rotateToMouse(elem , e) {        
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     const leftX = mouseX - bounds.x;
@@ -241,21 +381,3 @@ setTimeout(() => {
       )
     `;
   }
-  
-  card.forEach(elem=>{
-    elem.addEventListener('mousemove', (e) => {
-        bounds = elem.getBoundingClientRect();
-          rotateToMouse(elem , e)
-      });
-  })
-  
-  card.forEach(elem=>{
-      elem.addEventListener('mouseleave', () => {
-        elem.style.transform = '';
-        elem.style.background = '';
-      });
-  
-  })
-
-
-}, 0); // یا از requestAnimationFrame استفاده کن
