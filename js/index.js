@@ -129,7 +129,7 @@ async function newGems() {
     <a data-aos="fade-left" data-aos-duration="${duration}" href="game.html?id=${elem.id}" class=" swiper-slide h-auto ">
         <div class="card-parent group">
           <div class="card relative z-10 overflow-hidden ">
-            <img class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
+            <img loading="lazy" class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
             <div class="glow"></div>
             <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
             <span class="absolute top-0 right-0 p-3">${elem.rating.toFixed(1)}</span>
@@ -229,7 +229,7 @@ async function topGems() {
     <a data-aos="fade-left" data-aos-duration="${duration}" href="game.html?id=${elem.id}" class=" swiper-slide h-auto ">
         <div class="card-parent group">
           <div class="card relative z-10 overflow-hidden ">
-            <img class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
+            <img loading="lazy" class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
             <div class="glow"></div>
             <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
             <span class="absolute top-0 right-0 p-3">${elem.rating.toFixed(1)}</span>
@@ -331,7 +331,7 @@ async function featureGems() {
     <a data-aos="fade-left" data-aos-duration="${duration}" href="game.html?id=${elem.id}" class=" swiper-slide h-auto ">
         <div class="card-parent group">
           <div class="card relative z-10 overflow-hidden ">
-            <img class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
+            <img loading="lazy" class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
             <div class="glow"></div>
             <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
             <span class="absolute top-0 right-0 p-3 text-sm">${elem.released}</span>
