@@ -127,6 +127,7 @@
   display: none;
   background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
+
 @theme {
   --font-iran-sans: "iran-sans";
   --font-kalam: "kalam";

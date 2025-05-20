@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="assets/swiper-bundle.min.css">
     <link href="assets/aos.css" rel="stylesheet">
     <link href="./src/output.css" rel="stylesheet" />
+    <style>
+      .thumbsSwiper .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+    </style>
 </head>
 <body dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
      <div class="loader-container">
@@ -24,7 +29,7 @@
       <!-- finish up to top section  -->
 
       <!-- start header section -->
-      <header  class="h-auto md:h-screen w-screen relative overflow-hidden ">
+      <header  class="h-auto xl:h-screen w-screen relative overflow-hidden ">
          <!-- start navbar section -->
         <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
           <span id="toggle-menu-btn" class="cursor-pointer lg:hidden z-50">
@@ -268,42 +273,47 @@
           </div>
         </nav>
         <div id="header-content" class="h-full" >
-          <!-- <div class="w-full h-full bg-[url(../img/genres/Adventure.jpg)] bg-cover ">
-            <div class="w-full h-full relative bg-gradient-to-l from-black/40 from-10% to-transparent ">
-              <div class="text-white flex flex-col gap-3 pr-5 absolute top-1/2">
-                <h2 class=" font-[kalam-bold] text-4xl leading-normal bg-gradient-to-b from-white to-gray-400 h-15  bg-clip-text text-transparent sm:text-5xl lg:text-6xl lg:h-20">EA SPORTS FC™ 25</h2>
-                <span>4.8</span>
-                  <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-
-                  </div>
-         
-                  <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-                    <a href="search.html?genre=51" class="px-2.5 py-0.5 border rounded-4xl  transition-all duration-400 hover:text-indigo-600 ">مستقل</a>
-
-                  </div>
-                  <span>2020-05-24</span>
-              </div>  
-            </div>
-          </div> -->
+       
         </div>
   
       </header>
    <!-- finish header section --> 
          <!-- start more info section  -->
-        <section class="text-white py-5 px-3" >
-          <div id="moreinfo-content">
-            <p class="">کلامات کلیدی: Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet exercitationem quibusdam ullam pariatur similique porro earum maxime incidunt atque iure veniam dicta, eos, voluptate voluptatum! Quam optio ut soluta accusantium.</p>
-            <br> 
-            <p>توضیحات بازی: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, aperiam facilis. Magnam, praesentium quam! Maiores fugiat inventore incidunt dolor architecto iure aperiam assumenda culpa, praesentium mollitia nam nobis dolores enim?</p>
+        <section class="text-white py-5 px-3 my-5" >
+          <div  class=" px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl ">
+              <span class="py-1 px-3.5  border-2 rounded-full border-gray-600 ">توضیحات</span>
+            <div id="moreinfo-content" dir="ltr" class="my-7 md:my-10 xl:my-15 flex flex-col gap-3">
+
+            </div>
           </div>
         </section>
-
          <!-- finish more info section  -->
+          <!-- start photos section  -->
+        <section class=" text-white lg:h-screen  select-none">
+          <div class=" pb-5 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl ">
+           <div class="h-1/10">
+             <span class="py-1 px-3.5 border-2 rounded-full border-gray-600 ">تصاویر بازی</span>
+           </div>
+
+          <div class="screen-swiper relative w-full lg:h-[70vh] overflow-hidden mt-5 mb-2 ">
+            <div id="screen-swiper-wrapper" class=" swiper-wrapper w-full">
+           
+            </div>  
+            <div class="hidden sm:flex absolute top-1/2 w-full  justify-between px-4">
+              <div class="screen-swiper-button-next z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z" fill="#432dd7 "></path> </g></svg></div>
+              <div class="screen-swiper-button-prev z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#432dd7 "></path> </g></svg></div>
+            </div>
+          </div>
+          <div  thumbsSlider="" class="swiper thumbsSwiper lg:h-[15vh]">
+          <div id="thumbsSwiper-wrapper" class=" swiper-wrapper w-full">
+              
+            </div>  
+          </div>
+         </div>
+
+        </section>
+
+          <!-- finish photos section  -->
 
      <!-- start footer section  -->
    <footer class="text-white bg-slate-900 pt-17">
