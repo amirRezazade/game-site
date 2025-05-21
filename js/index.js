@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
   featureGems()
 });
 async function getHeader(){
-   let response = await fetch(`https://api.rawg.io/api/games?key=${key}&ordering=-added&page_size=10&dates=2020-01-01,2025-12-31&metacritic=80,100`)
+   let response = await fetch(`https://api.rawg.io/api/games?key=${key}&ordering=-released,-rating&page_size=10&dates=2020-01-01,2025-12-31`)
    let res = await response.json()
    let  list= res.results
    let onTop = list.filter(g =>g.background_image)
@@ -168,7 +168,7 @@ async function newGems() {
   })
   }
 async function topGems() {
-   let res = await fetch(`https://api.rawg.io/api/games?key=${key}&ordering=-metacritic&dates=2015-01-01,2025-12-31&page_size=20`)
+   let res = await fetch(`https://api.rawg.io/api/games?key=${key}&ordering=-released,-rating&dates=2015-01-01,2025-12-31&page_size=15`)
    let response = await res.json()
    let list = response.results   
       let onTop = list.filter(g=> g.background_image && g.rating >= 4.0 && g.ratings_count >= 800)

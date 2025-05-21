@@ -50,8 +50,9 @@ const gameId = urlParams.get('id');
 
         getHeaderGenres(response.genres)
         getHeaderPlatforms(response.parent_platforms)
-
-     offersGame(response.genres[0].id , response.tags[0].id)
+      
+    //  offersGame(response.genres[0].id , response.tags[0].id)
+     offersGame(response.genres , response.tags )
  }
 
  async function  getScreens() {
@@ -89,11 +90,13 @@ const gameId = urlParams.get('id');
   
 }
 
-async function  offersGame(genre , tag) {  
-  let res = await fetch(`https://api.rawg.io/api/games?key=${key}&genres=${genre}&tags=${tag}&exclude=${gameId}&page_size=14`)
-  let response = await res.json()
+async function  offersGame(genres , tags) {
+     let firstGenres = genres.slice(0 , 2).map(g => g.id).join(',')
+     let firstTags = tags.slice(0 , 2).map(t => t.id).join(',')
+     let res = await fetch(`https://api.rawg.io/api/games?key=${key}&genres=${firstGenres}&tags=${firstTags}&ordering=-released,-rating&page_size=10&exclude=${gameId}`)
+     let response = await res.json()
      let list = response.results   
-     let onTop = list.filter(g=> g.background_image && g.rating >= 4.0 && g.ratings_count >= 800)
+     let onTop = list.filter(g=> g.background_image )     
      onTop.forEach(elem=>{
         let pla=[]
     elem.parent_platforms.forEach(e=>{

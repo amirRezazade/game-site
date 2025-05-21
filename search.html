@@ -7,31 +7,15 @@
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
     <link rel="stylesheet" href="assets/swiper-bundle.min.css">
     <link href="./src/output.css" rel="stylesheet" />
-    <style>
-      .thumbsSwiper .swiper-slide-thumb-active {
-      opacity: 1;
-    }
-    </style>
+   
 </head>
 <body id="top" dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
      <div class="loader-container">
      <span class="loader"></span>
-   </div>
-  
-    <div class="content hidden">
-       <!-- start up to top section  -->
-    <div id="up-to-top-container" class="fixed hidden  items-center gap-6 -right-10 top-1/2 z-100 -rotate-90 text-white text-sm opacity-0 invisible transition-all duration-500 md:flex">
-      <a href="#top">به بالا بروید</a>
-      <div class="h-0.5 w-25 bg-gray-700 ">
-        <div id="up-to-top" class="h-full w-0  bg-indigo-700  transition-all"></div>
-      </div>
      </div>
-      <!-- finish up to top section  -->
-
-      <!-- start header section -->
-      <header  class="h-auto xl:h-screen w-screen relative overflow-hidden ">
-         <!-- start navbar section -->
-        <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
+  <div class="content text-white">
+  <header class="h-auto xl:h-screen">
+    <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
           <span id="toggle-menu-btn" class="cursor-pointer lg:hidden z-50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -271,141 +255,67 @@
              </span>
              
           </div>
-        </nav>
-        <div id="header-content" class="h-full" >
-       
-        </div>
-  
-      </header>
-   <!-- finish header section --> 
-         <!-- start more info section  -->
-        <section class="text-white py-5 px-3 my-5" >
-          <div  class=" px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl ">
-              <span class="py-1 px-3.5  border-2 rounded-full border-gray-600 ">توضیحات</span>
-            <div id="moreinfo-content" dir="ltr" class="my-7 md:my-10 xl:my-15 flex flex-col gap-3">
+    </nav>
 
-            </div>
-          </div>
-        </section>
-         <!-- finish more info section  -->
-          <!-- start photos section  -->
-        <section class=" text-white lg:h-screen  select-none">
-          <div class=" pb-5 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl ">
-           <div class="h-1/10">
-             <span class="py-1 px-3.5 border-2 rounded-full border-gray-600 ">تصاویر بازی</span>
+    <div class="flex flex-col gap-9 items-center mt-40 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8 ">
+        <h1 class="text-4xl font-[kalam]">جستجوی بازی</h1>
+        <div class="w-1/3 flex items-stretch h-12 rounded-full overflow-hidden border-2 border-indigo-700">
+            <input id="search-input" class="border-0 outline-0 grow px-5" type="text" placeholder="جسنجوی بازی">
+            <button id="search-btn" class="cursor-pointer px-5  bg-indigo-700">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>    
+            </button>
+        </div>
+        <div class="flex justify-between w-full">
+           <div class="">
+            <label for="genre" class="text-sm  ml-2">ژانر</label>
+                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                  <option selected>همه</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                </select>
            </div>
-
-          <div class="screen-swiper relative w-full lg:h-[70vh] overflow-hidden mt-5 mb-2 ">
-            <div id="screen-swiper-wrapper" class=" swiper-wrapper w-full">
-           
-            </div>  
-            <div class="hidden sm:flex absolute top-1/2 w-full  justify-between px-4">
-              <div class="screen-swiper-button-next z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z" fill="#432dd7 "></path> </g></svg></div>
-              <div class="screen-swiper-button-prev z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#432dd7 "></path> </g></svg></div>
-            </div>
-          </div>
-          <div  thumbsSlider="" class="swiper thumbsSwiper lg:h-[15vh]">
-          <div id="thumbsSwiper-wrapper" class=" swiper-wrapper w-full">
-              
-            </div>  
-          </div>
-         </div>
-
-        </section>
-          <!-- finish photos section  -->
-           <!-- start offers section  -->
-      <section class="my-8 sm:my-10 lg:my-10 xl:my-10 text-white">
-      <div class="px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
-      <span class="py-1 px-3.5  border-2 rounded-full border-gray-600">بازی های مشابه</span>
+           <div class="">
+            <label for="genre" class="text-sm  ml-2">ژانر</label>
+                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                  <option selected>همه</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                </select>
+           </div>
+           <div class="">
+            <label for="genre" class="text-sm  ml-2">ژانر</label>
+                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                  <option selected>همه</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                </select>
+           </div>
+           <div class="">
+            <label for="genre" class="text-sm  ml-2">ژانر</label>
+                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                  <option selected>همه</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                </select>
+           </div>
+        </div>
     </div>
-      <div class="offers-game-swiper my-8 lg:m-11 select-none">
-        <div id="offers-game-swiper" class="swiper-wrapper">
-        </div>
-      </div>
-      
-      
-    </section>
-           <!-- finish offers section  -->
-
-     <!-- start footer section  -->
-   <footer class="text-white bg-slate-900 pt-17">
-    <div class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
-     <div class="flex flex-wrap gap-8 pb-10 lg:flex-nowrap">
-      <div class="lg:w-1/3">
-        <img src="img/navbar/logo.png" alt="photo">
-        <p class="text-zinc-400 mt-6 leading-8">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.      </p>
-      </div>
-      <div class="w-full flex justify-around lg:w-1/3">
-        <div class="flex flex-col  gap-4">
-          <span class="font-[kalam] mb-2">سرور بازی</span>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">تندر و شهر</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مسابقه مرموز الف</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">خشم خاموش</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سیاهچال فانک</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اودیسه کهکشانی</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">افسانه جنگ</a>
-    
-        </div>
-        <div class="flex flex-col  gap-4">
-          <span class="font-[kalam] mb-3">صفحات</span>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">سرور بازی</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">پایگاه دانش</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">درباره ما</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">بازاریابی</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">مکان ها</a>
-          <a href="javascript:void(0)" class="text-zinc-400 text-sm hover:text-indigo-500 transition-all duration-300">اخبار</a>
-    
-        </div>
-      </div>
-      <div class="flex flex-col w-full gap-4 lg:w-1/3">
-        <span class="font-[kalam] mb-3">خبر نامه</span>
-        <div class="rounded-full flex justify-between h-10  pr-5  overflow-hidden bg-slate-800">
-          <input class="border-0 outline-0  h-full w-7/10 " type="email" placeholder="ایمیل خود را وارد کنید">
-          <button class="flex justify-center items-center cursor-pointer w-2/10 h-full bg-gradient-to-br from-violet-700 to-indigo-500">
-            <svg width="25px" height="25px" viewBox="0 -6.5 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>left-arrow</title> <desc>Created with Sketch.</desc> <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ui-gambling-website-lined-icnos-casinoshunter" transform="translate(-1641.000000, -158.000000)" fill="#ffffff" fill-rule="nonzero"> <g id="1" transform="translate(1350.000000, 120.000000)"> <path d="M317.812138,38.5802109 L328.325224,49.0042713 L328.41312,49.0858421 C328.764883,49.4346574 328.96954,49.8946897 329,50.4382227 L328.998248,50.6209428 C328.97273,51.0514917 328.80819,51.4628128 328.48394,51.8313977 L328.36126,51.9580208 L317.812138,62.4197891 C317.031988,63.1934036 315.770571,63.1934036 314.990421,62.4197891 C314.205605,61.6415481 314.205605,60.3762573 314.990358,59.5980789 L322.274264,52.3739093 L292.99947,52.3746291 C291.897068,52.3746291 291,51.4850764 291,50.3835318 C291,49.2819872 291.897068,48.3924345 292.999445,48.3924345 L322.039203,48.3917152 L314.990421,41.4019837 C314.205605,40.6237427 314.205605,39.3584519 314.990421,38.5802109 C315.770571,37.8065964 317.031988,37.8065964 317.812138,38.5802109 Z" id="left-arrow" transform="translate(310.000000, 50.500000) scale(-1, 1) translate(-310.000000, -50.500000) "> </path> </g> </g> </g> </g></svg>
-          </button>
-        </div>
-        <p class="text-zinc-400 text-[13px]">ایمیل شما نزد ما محفوظ است. ما اسپم نمی کنیم.      </p>
-        <span class="font-[kalam] mt-3">ما را دنبال کنید      </span>
-        <div class="flex gap-3">
-          <a class="group cursor-pointer flex justify-center items-center rounded-lg bg-slate-800 w-9 h-9 transition-all duration-300 hover:bg-white hover:fill-red-300">
-            <svg class="fill-indigo-400 group-hover:fill-violet-500 transition-all" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0,0,256,256">
-              <g  fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M17.525,9h-3.525v-2c0,-1.032 0.084,-1.682 1.563,-1.682h1.868v-3.18c-0.909,-0.094 -1.823,-0.14 -2.738,-0.138c-2.713,0 -4.693,1.657 -4.693,4.699v2.301h-3v4l3,-0.001v9.001h4v-9.003l3.066,-0.001z"></path></g></g>
-              </svg>
-            </a>
-          <a class="group cursor-pointer flex justify-center items-center rounded-lg bg-slate-800 w-9 h-9 transition-all duration-300 hover:bg-white hover:fill-red-300">
-            <svg class="fill-indigo-400 group-hover:fill-violet-500 transition-all" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">    <path d="M21.634,4.031c-0.815,0.385-2.202,1.107-2.899,1.245c-0.027,0.007-0.049,0.016-0.075,0.023 c-0.813-0.802-1.927-1.299-3.16-1.299c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.218,0-5.568-1.679-7.327-3.837 C3.438,4.873,3.188,5.024,3.136,5.23C3.019,5.696,2.979,6.475,2.979,7.031c0,1.401,1.095,2.777,2.8,3.63 c-0.314,0.081-0.66,0.139-1.02,0.139c-0.424,0-0.912-0.111-1.339-0.335c-0.158-0.083-0.499-0.06-0.398,0.344 c0.405,1.619,2.253,2.756,3.904,3.087c-0.375,0.221-1.175,0.176-1.543,0.176c-0.136,0-0.609-0.032-0.915-0.07 c-0.279-0.034-0.708,0.038-0.349,0.582c0.771,1.167,2.515,1.9,4.016,1.928c-1.382,1.084-3.642,1.48-5.807,1.48 c-0.438-0.01-0.416,0.489-0.063,0.674C3.862,19.504,6.478,20,8.347,20C15.777,20,20,14.337,20,8.999 c0-0.086-0.002-0.266-0.005-0.447C19.995,8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.589-0.425,1.491-1.163,1.947-1.728c0.155-0.192,0.03-0.425-0.181-0.352 c-0.543,0.189-1.482,0.555-2.07,0.625c1.177-0.779,1.759-1.457,2.259-2.21C22.109,4.168,21.895,3.907,21.634,4.031z"/></svg>
-          </a>
-          <a class="group cursor-pointer flex justify-center items-center rounded-lg bg-slate-800 w-9 h-9 transition-all duration-300 hover:bg-white hover:fill-red-300">
-            <svg class="fill-indigo-400 group-hover:fill-violet-500 transition-all" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="22" height="22">    <path d="M25.12,6.946c-2.424-1.948-6.257-2.278-6.419-2.292c-0.256-0.022-0.499,0.123-0.604,0.357 c-0.004,0.008-0.218,0.629-0.425,1.228c2.817,0.493,4.731,1.587,4.833,1.647c0.478,0.278,0.638,0.891,0.359,1.368 C22.679,9.572,22.344,9.75,22,9.75c-0.171,0-0.343-0.043-0.501-0.135C21.471,9.598,18.663,8,15.002,8 C11.34,8,8.531,9.599,8.503,9.615C8.026,9.892,7.414,9.729,7.137,9.251C6.86,8.775,7.021,8.164,7.497,7.886 c0.102-0.06,2.023-1.158,4.848-1.65c-0.218-0.606-0.438-1.217-0.442-1.225c-0.105-0.235-0.348-0.383-0.604-0.357 c-0.162,0.013-3.995,0.343-6.451,2.318C3.564,8.158,1,15.092,1,21.087c0,0.106,0.027,0.209,0.08,0.301 c1.771,3.11,6.599,3.924,7.699,3.959c0.007,0.001,0.013,0.001,0.019,0.001c0.194,0,0.377-0.093,0.492-0.25l1.19-1.612 c-2.61-0.629-3.99-1.618-4.073-1.679c-0.444-0.327-0.54-0.953-0.213-1.398c0.326-0.443,0.95-0.541,1.394-0.216 C7.625,20.217,10.172,22,15,22c4.847,0,7.387-1.79,7.412-1.808c0.444-0.322,1.07-0.225,1.395,0.221 c0.324,0.444,0.23,1.066-0.212,1.392c-0.083,0.061-1.456,1.048-4.06,1.677l1.175,1.615c0.115,0.158,0.298,0.25,0.492,0.25 c0.007,0,0.013,0,0.019-0.001c1.101-0.035,5.929-0.849,7.699-3.959c0.053-0.092,0.08-0.195,0.08-0.301 C29,15.092,26.436,8.158,25.12,6.946z M11,19c-1.105,0-2-1.119-2-2.5S9.895,14,11,14s2,1.119,2,2.5S12.105,19,11,19z M19,19 c-1.105,0-2-1.119-2-2.5s0.895-2.5,2-2.5s2,1.119,2,2.5S20.105,19,19,19z"/></svg>
-          </a>
-          <a class="group cursor-pointer flex justify-center items-center rounded-lg bg-slate-800 w-9 h-9 transition-all duration-300 hover:bg-white hover:fill-red-300">
-            <svg class="fill-indigo-400 group-hover:fill-violet-500 transition-all" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path d="M5.83,23.616c12.568-5.529,28.832-12.27,31.077-13.203c5.889-2.442,7.696-1.974,6.795,3.434 c-0.647,3.887-2.514,16.756-4.002,24.766c-0.883,4.75-2.864,5.313-5.979,3.258c-1.498-0.989-9.059-5.989-10.7-7.163 c-1.498-1.07-3.564-2.357-0.973-4.892c0.922-0.903,6.966-6.674,11.675-11.166c0.617-0.59-0.158-1.559-0.87-1.086 c-6.347,4.209-15.147,10.051-16.267,10.812c-1.692,1.149-3.317,1.676-6.234,0.838c-2.204-0.633-4.357-1.388-5.195-1.676 C1.93,26.43,2.696,24.995,5.83,23.616z"/></svg>
-          </a>
-          <a class="group flex justify-center items-center rounded-lg bg-slate-800 w-9 h-9 transition-all duration-300 hover:bg-white hover:fill-red-300">
-            <svg class="fill-indigo-400 group-hover:fill-violet-500 transition-all" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="22" height="22"><path d="M53.527,17.427C55.714,19.677,56,23.252,56,32s-0.286,12.323-2.473,14.573C51.34,48.822,49.062,49,32,49 s-19.34-0.178-21.527-2.427C8.286,44.323,8,40.748,8,32s0.286-12.323,2.473-14.573S14.938,15,32,15S51.34,15.178,53.527,17.427z M27.95,39.417l12.146-7.038L27.95,25.451V39.417z"/></svg>
-          </a>
-        </div>
-  
-      </div>
-     </div>
-    </div>
-    <hr class="opacity-20">
-    <div class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
-      <div class="flex flex-col  gap-3 text-sm text-zinc-400 py-5 md:flex-row md:justify-between">
-        <span >کپی رایت 2024 - طراحی شده توسط امیر      </span>
-        <div class="flex gap-7">
-          <a href="javascript:void(0)">شرایط & قوانین</a>
-          <a href="javascript:void(0)">سیاست حفظ حریم خصوصی</a>
-        </div>
-      </div>
-    </div>
-   </footer>
-   <!-- finish footer section  -->
-    </div>
+  </header>
 
 
 
+  </div>
+
+
+   
     
       <script src="assets/swiper-bundle.min.js"></script>
       <script type="module" src="js/game.js"></script>

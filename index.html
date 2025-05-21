@@ -9,7 +9,7 @@
     <link href="assets/aos.css" rel="stylesheet">
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
+  <body id="top" dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
    <div class="loader-container">
      <span class="loader"></span>
    </div>
@@ -18,7 +18,7 @@
   
     <!-- start up to top section  -->
     <div id="up-to-top-container" class="fixed hidden  items-center gap-6 -right-10 top-1/2 z-100 -rotate-90 text-white text-sm opacity-0 invisible transition-all duration-500 md:flex">
-      <a href="#test">به بالا بروید</a>
+      <a href="#top">به بالا بروید</a>
       <div class="h-0.5 w-25 bg-gray-700 ">
         <div id="up-to-top" class="h-full w-0  bg-indigo-700  transition-all"></div>
       </div>
@@ -304,7 +304,7 @@
          <!-- finish slider btn section -->
   
              <!-- start header slider-number section  -->
-          <div class="swiper-pagination mb-6 ml-5 sm:mb-10 sm:ml-10 font-[iran-num] z-10 max-w-20">
+          <div class="swiper-pagination mb-6 ml-5 sm:mb-10 sm:ml-10 font-[iran-num] z-10 max-w-25">
         
           </div>
              <!-- finish header slider-number section  -->
@@ -757,7 +757,7 @@
       <span class="py-1 px-3 border-2 rounded-full border-gray-600 ">آیا شما</span>
       <h2 class="font-[kalam-bold] my-5 w-1/1 text-3xl  h-13 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent lg:text-4xl lg:w-auto">سوالی دارید؟</h2>
      <div class=" flex flex-col gap-2.5 lg:flex-row lg:gap-6">
-      <div class="flex flex-col gap-2.5 ">
+      <div data-aos="fade-left" class="flex flex-col gap-2.5 ">
         <div  class="h-12 overflow-hidden transition-all duration-300 ease-in ">
           <button id="accordion" class=" cursor-pointer text-sm sm:text-base w-full h-12 px-5 flex justify-between items-center rounded-lg bg-slate-900">
             <span>میزبانی سرور بازی چیست؟</span>
@@ -795,7 +795,7 @@
         </div>
   
       </div>    
-      <div class="flex flex-col gap-2.5 ">
+      <div data-aos="fade-right" class="flex flex-col gap-2.5 ">
         <div  class="h-12 overflow-hidden transition-all duration-300 ease-in ">
           <button id="accordion" class="  cursor-pointer text-sm sm:text-base w-full h-12 px-5 flex justify-between items-center rounded-lg bg-slate-900">
             <span>چگونه سرور بازی را مدیریت کنم؟</span>
@@ -843,7 +843,7 @@
   
     <!-- start downloading section  -->
    <section class="my-10 text-white lg:mt-40 lg:mb-10">
-    <div class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
+    <div data-aos="fade-up" class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
       <div class="w-full h-full  bg-cover bg-center bg-fixed lg:relative"  style="background-image: url(img/downloading/2.webp);">
        <div class="w-full h-full p-10  lg:w-1/2 xl:p-15">
         <span class="py-1 px-3 border-2  rounded-full border-gray-600 ">اکنون دانلود کنید</span>
@@ -869,16 +869,16 @@
     <!-- start active ports section -->
   <section class="text-white mb-10 lg:mb-25">
     <div class="px-5 mx-auto  sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8">
-      <span class="py-1 px-3 border-2  rounded-full border-gray-600 ">روش های پرداخت</span>
+      <span  class="py-1 px-3 border-2  rounded-full border-gray-600 ">روش های پرداخت</span>
       <div class="flex flex-wrap lg:flex-nowrap lg:items-center lg:justify-between">
-        <h2 class="font-[kalam-bold] my-5 w-1/1 text-3xl  leading-normal bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent lg:text-4xl lg:w-auto">درگاه های فعال      </h2>
+        <h2 data-aos="fade-left" class="font-[kalam-bold] my-5 w-1/1 text-3xl  leading-normal bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent lg:text-4xl lg:w-auto">درگاه های فعال      </h2>
        <div class="flex flex-wrap gap-5 sm:flex-nowrap lg:w-1/2">
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/visa.webp" alt="photo"></a>
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/mastercard.webp" alt="photo"></a>
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/paypal.webp" alt="photo"></a>
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/jcb.webp" alt="photo"></a>
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/skrill.webp" alt="photo"></a>
-        <a href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/american-express.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/visa.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/mastercard.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/paypal.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/jcb.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/skrill.webp" alt="photo"></a>
+        <a data-aos="fade-right" href="javascript:void(0)" class="w-1/4 grow bg-slate-900 rounded-lg"><img class="w-full" src="img/active post/american-express.webp" alt="photo"></a>
        </div>
       </div>
   
