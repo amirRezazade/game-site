@@ -5,9 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play host</title>
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
-    <link rel="stylesheet" href="assets/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="assets/swiper-bundle.min.css"> -->
     <link href="./src/output.css" rel="stylesheet" />
-   
+   <link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+
+       <style>
+
+   .noUi-target {
+    background: #111;
+    border: none;
+    height: 3px; /* ← ارتفاع نوار اسلایدر */
+    border-radius: 3px;
+    border: none;
+  }
+  .noUi-base{
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .custom-slider .noUi-connect {  
+    background-color: #4338ca !important;
+  }
+
+  .custom-slider .noUi-handle {
+    background-color: #4338ca !important;
+    border: 1px solid white !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 0;
+    transform: rotate(45deg); 
+    cursor: grab;
+    box-shadow: none;
+  }
+
+  .custom-slider .noUi-handle::before,
+  .custom-slider .noUi-handle::after {
+    display: none;
+  }
+
+ 
+</style>
 </head>
 <body id="top" dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
      <div class="loader-container">
@@ -257,68 +295,112 @@
           </div>
     </nav>
 
-    <div class="flex flex-col gap-9 items-center mt-40 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8 ">
+    <div class="flex flex-col gap-9 items-center mt-25 md:mt-30 lg:mt-35 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl xl:px-8 ">
         <h1 class="text-4xl font-[kalam]">جستجوی بازی</h1>
-        <div class="w-1/3 flex items-stretch h-12 rounded-full overflow-hidden border-2 border-indigo-700">
+        <div class="w-2/3 md:w-1/2 lg:w-1/3 flex items-stretch h-10 md:h-12 rounded-full overflow-hidden border-2 border-indigo-700">
             <input id="search-input" class="border-0 outline-0 grow px-5" type="text" placeholder="جسنجوی بازی">
             <button id="search-btn" class="cursor-pointer px-5  bg-indigo-700">
             <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>    
             </button>
         </div>
-        <div class="flex justify-between w-full">
-           <div class="">
+        <div class="flex text-sm flex-wrap md:flex-nowrap gap-y-10 justify-between items-center md:py-5 my-5 w-full ">
+           <div class=" w-2/5 md:w-1/5 pl-5" >
+    
+              <div class="w-full  h-full ">
+              <div class="flex items-center justify-between mb-5 ">
+                <span id="max-year" class=" font-bold">2025</span>
+                <span class="">سال </span>
+                <span id="min-year" class=" font-bold">1888</span>
+              </div>
+            
+              <div id="slider-year" class="custom-slider"></div>
+            </div>
+           </div>
+           <div class="order-3 md:order-2 ">
             <label for="genre" class="text-sm  ml-2">ژانر</label>
-                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
-                  <option selected>همه</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
+                <select id="genre" class="p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                    <option value="all">همه</option>
+                    <option value="4">اکشن</option>
+                    <option value="3">ماجراجویی</option>
+                    <option value="5">نقش‌آفرینی</option>
+                    <option value="10">استراتژی</option>
+                    <option value="2">تیراندازی</option>
+                    <option value="7">پازل</option>
+                    <option value="1">مسابقه‌ای</option>
+                    <option value="15">ورزشی</option>
+                    <option value="6">مبارزه‌ای</option>
+                    <option value="14">شبیه‌سازی</option>
+                    <option value="11">آرکید</option>
+                    <option value="83">پلتفرمر</option>
+                    <option value="59">چندنفره گسترده</option>
+                    <option value="51">مستقل</option>
+                    <option value="40">معمولی</option>
+                    <option value="16">بازی‌های رومیزی</option>
+                    <option value="34">کارتی</option>
+                    <option value="28">آموزشی</option>
+                    <option value="19">خانوادگی</option>
+                    <option value="17">ترس و وحشت</option>
+                    <option value="18">سندباکس</option>
+                    <option value="32">جهان باز</option>
+                    <option value="33">بقا</option>
+                    <option value="36">بتل رویال</option>
+                    <option value="37">مخفیکاری</option>
+                    <option value="25">تاکتیکی</option>
+                    
+
                 </select>
            </div>
-           <div class="">
-            <label for="genre" class="text-sm  ml-2">ژانر</label>
-                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
-                  <option selected>همه</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
+           <div class="order-4 md:order-3 ">
+            <label for="platforms" class="text-sm  ml-2">پلتفرم</label>
+                <select id="platforms" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
+                  <option value="all" selected>همه</option>
+                  <option value="1">PC</option>
+                  <option value="2">PlayStation</option>
+                  <option value="3">Xbox</option>
+                  <option value="4">iOS</option>
+                  <option value="5">Android</option>
+                  <option value="6">Apple Macintosh</option>
+                  <option value="7">Linux</option>
+                  <option value="8">Nintendo</option>
+                  <option value="9">Atari</option>
+                  <option value="10">Commodore</option>
+                  <option value="11">SEGA</option>
+                  <option value="12">3DO</option>
+                  <option value="13">Neo Geo</option>
+                  <option value="14">Web</option>
                 </select>
            </div>
-           <div class="">
-            <label for="genre" class="text-sm  ml-2">ژانر</label>
-                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
-                  <option selected>همه</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
-                </select>
-           </div>
-           <div class="">
-            <label for="genre" class="text-sm  ml-2">ژانر</label>
-                <select id="genre" class=" p-2 text-sm bg-slate-950 rounded-full border border-indigo-700">
-                  <option selected>همه</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
-                </select>
+           <div class="w-2/5 md:w-1/5 pl-5 order-2 md:order-4" >
+    
+              <div class="w-full  h-full ">
+              <div class="flex items-center justify-between mb-5 ">
+                <span id="max-point" class="w-5  font-bold">5</span>
+                <span class="">امتیاز</span>
+                <span id="min-point" class="w-5 text-left font-bold">0</span>
+              </div>
+            
+              <div id="slider-point" class="custom-slider"></div>
+            </div>
            </div>
         </div>
     </div>
   </header>
-
+  <!-- start up to top section  -->
+    <div id="up-to-top-container" class="fixed hidden  items-center gap-6 -right-10 top-1/2 z-100 -rotate-90 text-white text-sm opacity-0 invisible transition-all duration-500 md:flex">
+      <a href="#top">به بالا بروید</a>
+      <div class="h-0.5 w-25 bg-gray-700 ">
+        <div id="up-to-top" class="h-full w-0  bg-indigo-700  transition-all"></div>
+      </div>
+     </div>
+      <!-- finish up to top section  -->
 
 
   </div>
 
 
    
-    
-      <script src="assets/swiper-bundle.min.js"></script>
-      <script type="module" src="js/game.js"></script>
+
+      <script type="module" src="js/search.js"></script>
       <script type="module" src="js/eventListeners.js"></script>
 </body>
 </html>
