@@ -64,6 +64,9 @@
     console.log("Min:", values[0]);
     console.log("Max:", values[1]);
   }
+  fetch('https://api.rawg.io/api/platforms/lists/parents?key=dc71f8491ea14dc3a3f0bce8294043e4')
+  .then(res => res.json()).then(res=> console.log(res)
+  )
 
 </script>
 

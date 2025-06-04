@@ -10,6 +10,8 @@ const searchBtn = document.querySelector('#search-btn');
 const genreInput = document.querySelector('#genre');
 const platformInput = document.querySelector('#platforms');
 const searchInput = document.querySelector('#search-input');
+
+
   
   window.addEventListener('DOMContentLoaded' , ()=>{
        document.querySelector('.content').classList.remove('hidden')
@@ -17,12 +19,12 @@ const searchInput = document.querySelector('#search-input');
      })
 
         noUiSlider.create(slider, {
-          start: [1888, 2025],
+          start: [1970, 2025],
           connect: true,
           step: 1,
           direction: 'ltr',
           range: {
-            min: 1888,
+            min: 1970,
             max: 2025
           },
           format: {
@@ -58,6 +60,11 @@ const searchInput = document.querySelector('#search-input');
 
 
         searchBtn.addEventListener('click' , getParams)
+        document.querySelector('#name-search-btn').addEventListener('click', getParams)
+        searchInput.addEventListener('keydown' , (e)=>{
+         if(e.keyCode==13) getParams()
+          
+        })
       function getParams(){
      
            const yearValues = slider.noUiSlider.get(); // مقدار هر دو دسته
@@ -75,13 +82,17 @@ const searchInput = document.querySelector('#search-input');
               getGames(`https://api.rawg.io/api/games?key=${key}${word}${genre}${platform}&dates=${minYear}-01-01,${maxYear}-12-31&ordering=-rating&metacritic=${minPoint},${maxPoint}&page_size=18&page=1`)
              
       }
-     async function getGames(url){
+      async function getGames(url){
+       document.getElementById('game-loader').style.display='flex'
         document.querySelector('#games-container').innerHTML=''
         
         let res =await fetch(url)
         let answer=await res.json()
+               document.getElementById('game-loader').style.display='none'
+
         let list = answer.results
         console.log(list);
+        if(list.length!=0){
         list.forEach(elem => {
             let pla=[]
     elem.parent_platforms.forEach(e=>{
@@ -108,5 +119,11 @@ const searchInput = document.querySelector('#search-input');
           `
           
         });
-        
+      }
+      else{
+         document.querySelector('#games-container').innerHTML+=`
+                          <h1 class="block text-center col-span-full text-xl">محتوایی برای نمایش وجود ندارد</h1>
+
+         `
+      }
       }
