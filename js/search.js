@@ -10,7 +10,8 @@ const searchBtn = document.querySelector('#search-btn');
 const genreInput = document.querySelector('#genre');
 const platformInput = document.querySelector('#platforms');
 const searchInput = document.querySelector('#search-input');
-
+let page = 1
+let answer
 
   
   window.addEventListener('DOMContentLoaded' , ()=>{
@@ -65,8 +66,7 @@ const searchInput = document.querySelector('#search-input');
          if(e.keyCode==13) getParams()
           
         })
-      function getParams(){
-     
+      function getParams(){          
            const yearValues = slider.noUiSlider.get(); // مقدار هر دو دسته
            const pointValues = pointSlider.noUiSlider.get(); // مقدار هر دو دسته
            let minYear = yearValues[0]
@@ -76,22 +76,26 @@ const searchInput = document.querySelector('#search-input');
            let word = searchInput.value.trim() ?  `&search=${searchInput.value.trim()}`: ''
            let genre = genreInput.value != 'all' ? `&genres=${genreInput.value}` : ''
            let platform = platformInput.value != 'all' ? `&parent_platforms=${platformInput.value}` : ''
-           console.log(word);
-           
-              console.log(`https://api.rawg.io/api/games?key=${key}${word}${genre}${platform}&dates=${minYear}-01-01,${maxYear}-12-31&ordering=-rating&metacritic=${minPoint},${maxPoint}&page_size=10`)
-              getGames(`https://api.rawg.io/api/games?key=${key}${word}${genre}${platform}&dates=${minYear}-01-01,${maxYear}-12-31&ordering=-rating&metacritic=${minPoint},${maxPoint}&page_size=18&page=1`)
+
+              getGames(`https://api.rawg.io/api/games?key=${key}${word}${genre}${platform}&dates=${minYear}-01-01,${maxYear}-12-31&ordering=-rating&metacritic=${minPoint},${maxPoint}&page_size=18&page=${page}`)
              
       }
       async function getGames(url){
+        console.log(url);
+        console.log(page);
+        
        document.getElementById('game-loader').style.display='flex'
+       document.getElementById('pagination').style.display='none'
         document.querySelector('#games-container').innerHTML=''
         
         let res =await fetch(url)
-        let answer=await res.json()
-               document.getElementById('game-loader').style.display='none'
-
+         answer=await res.json()
         let list = answer.results
-        console.log(list);
+        console.log(answer);
+        paginationControl()
+        document.getElementById('game-loader').style.display='none'
+        document.getElementById('pagination').style.display='flex'
+
         if(list.length!=0){
         list.forEach(elem => {
             let pla=[]
@@ -127,3 +131,59 @@ const searchInput = document.querySelector('#search-input');
          `
       }
       }
+
+
+      function paginationControl(){
+        if(page==answer.count || page==500){
+          document.querySelector('#next').disabled = true
+        }else document.querySelector('#next').disabled = false
+
+        if( page==1){
+          document.querySelector('#prev').disabled = true
+        }else document.querySelector('#prev').disabled = false
+
+        if(page==1){
+          document.querySelector('#one').style.backgroundColor='#4f39f6' 
+          document.querySelector('#count').style.backgroundColor=''        
+          document.querySelector('#count').textContent= answer.count<500 ? Math.floor(answer.count/2): 255
+
+        }else document.querySelector('#one').style.backgroundColor=''
+
+        if(page==answer.count || page == 500){
+          document.querySelector('#end').style.backgroundColor='#4f39f6' 
+          document.querySelector('#count').style.backgroundColor=''        
+          document.querySelector('#count').textContent= answer.count<500 ? Math.floor(answer.count/2): 255
+        }else  document.querySelector('#end').style.backgroundColor='' 
+
+        if(page!=1 && page!= answer.count){
+          document.querySelector('#count').textContent=page        
+          document.querySelector('#count').style.backgroundColor='#4f39f6'        
+        }
+
+        
+        if(answer.count<500) document.querySelector('#end').textContent=answer.count  
+        else document.querySelector('#end').textContent=500      
+
+      }
+       document.querySelector('#next').addEventListener('click' , ()=>{
+            page++
+           getGames(answer.next)
+           
+          })
+       document.querySelector('#prev').addEventListener('click' , ()=>{
+            page--
+            getGames(answer.previous)
+          })
+       document.querySelector('#one').addEventListener('click' , ()=>{
+            page=1
+            getParams()
+          })
+       document.querySelector('#end').addEventListener('click' , ()=>{
+            page=Number(document.querySelector('#end').textContent)
+            getParams()
+          })
+       document.querySelector('#count').addEventListener('click' , ()=>{
+            page=Number(document.querySelector('#count').textContent)
+            getParams()
+          })
+          
