@@ -60,10 +60,19 @@ let answer
       
 
 
-        searchBtn.addEventListener('click' , getParams)
-        document.querySelector('#name-search-btn').addEventListener('click', getParams)
+        searchBtn.addEventListener('click' , ()=>{
+          page=1
+          getParams()
+        })
+        document.querySelector('#name-search-btn').addEventListener('click', ()=>{
+          page=1
+          getParams()
+        })
         searchInput.addEventListener('keydown' , (e)=>{
-         if(e.keyCode==13) getParams()
+         if(e.keyCode==13) {
+          page=1
+            getParams()
+          }
           
         })
       function getParams(){          
@@ -90,11 +99,12 @@ let answer
         
         let res =await fetch(url)
          answer=await res.json()
-        let list = answer.results
-        console.log(answer);
+        let list = answer.results.filter(elem => elem.esrb_rating !== null )
+        // let test = list
+        console.log(list);
         paginationControl()
         document.getElementById('game-loader').style.display='none'
-        document.getElementById('pagination').style.display='flex'
+        if(answer.count>18) document.getElementById('pagination').style.display='flex'
 
         if(list.length!=0){
         list.forEach(elem => {
@@ -106,7 +116,7 @@ let answer
            <a id="${elem.id}" href="game.html?id=${elem.id}" class="h-auto ">
         <div class="card-parent group">
           <div class="card relative z-10 overflow-hidden ">
-            <img loading="lazy" class="w-full object-cover aspect-3/4 " src="${elem.background_image}" alt="${elem.name}">
+            <img loading="lazy" class="w-full object-cover aspect-3/4 " src="${elem.background_image ? elem.background_image :'img/default-poster.jpg'}" alt="${elem.name}">
             <div class="glow"></div>
             <div class="flex gap-1 absolute w-full h-full top-0 left-0 p-3 text-white bg-gradient-to-b from-black/30 from-5% via-transparent text-left to-black/30 to-95%%">
             <span class="absolute top-0 right-0 p-3">${elem.rating.toFixed(1)}</span>
@@ -134,35 +144,38 @@ let answer
 
 
       function paginationControl(){
-        if(page==answer.count || page==500){
+        if(Math.ceil(answer.count / 18) < 500) document.querySelector('#end').textContent= Math.ceil(answer.count / 18)
+        else document.querySelector('#end').textContent=500  
+
+
+        if(page== Math.ceil(answer.count/18) || page==500){
           document.querySelector('#next').disabled = true
         }else document.querySelector('#next').disabled = false
 
-        if( page==1){
-          document.querySelector('#prev').disabled = true
-        }else document.querySelector('#prev').disabled = false
-
         if(page==1){
+          document.querySelector('#prev').disabled = true
           document.querySelector('#one').style.backgroundColor='#4f39f6' 
           document.querySelector('#count').style.backgroundColor=''        
-          document.querySelector('#count').textContent= answer.count<500 ? Math.floor(answer.count/2): 255
+          document.querySelector('#count').textContent= Number(Math.ceil(document.querySelector('#end').textContent/2))
 
-        }else document.querySelector('#one').style.backgroundColor=''
+        }else{
+          document.querySelector('#prev').disabled = false
+          document.querySelector('#one').style.backgroundColor=''
+        }
 
-        if(page==answer.count || page == 500){
+        if(page== Math.ceil(answer.count/18) || page == 500){
           document.querySelector('#end').style.backgroundColor='#4f39f6' 
           document.querySelector('#count').style.backgroundColor=''        
-          document.querySelector('#count').textContent= answer.count<500 ? Math.floor(answer.count/2): 255
+          document.querySelector('#count').textContent= Number(Math.ceil(document.querySelector('#end').textContent/2))
         }else  document.querySelector('#end').style.backgroundColor='' 
 
-        if(page!=1 && page!= answer.count){
+        if(page!=1 && page!= Number(document.querySelector('#end').textContent)){
           document.querySelector('#count').textContent=page        
           document.querySelector('#count').style.backgroundColor='#4f39f6'        
         }
 
         
-        if(answer.count<500) document.querySelector('#end').textContent=answer.count  
-        else document.querySelector('#end').textContent=500      
+       
 
       }
        document.querySelector('#next').addEventListener('click' , ()=>{
