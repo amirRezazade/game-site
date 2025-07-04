@@ -46,7 +46,7 @@ async function getHeader(){
                       <a href="game.html?id=${elem.id}" class=" flex flex-col gap-3 -translate-y-3/5 transition-all duration-200 ease-in group-hover:translate-y-0">
                         <span>مشاهده بازی</span>
                         <span>مشاهده بازی</span>
-                      </ش>
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ async function getHeader(){
     loop: true,
     speed: 750,
     autoplay: {
-      delay: 4000, 
+      delay: 5000, 
      
     },
     pagination: {
@@ -123,7 +123,7 @@ async function newGems() {
   speed: 500,
   slidesPerView:2,
   spaceBetween: 15,
-  grabCursor: true,
+  
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
@@ -202,7 +202,7 @@ async function topGems() {
   speed: 500,
   slidesPerView:2,
   spaceBetween: 15,
-  grabCursor: true,
+  
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
@@ -283,7 +283,7 @@ async function featureGems() {
   speed: 500,
   slidesPerView:2,
   spaceBetween: 15,
-  grabCursor: true,
+  
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {
@@ -331,7 +331,7 @@ const genresSwiper = new Swiper(".genres-swiper", {
   speed: 500,
   slidesPerView:3,
   spaceBetween: 15,
-  grabCursor: true,
+  
   initialSlide:1 ,
   centeredSlides:true,
   breakpoints: {

@@ -67,7 +67,9 @@ const gameId = urlParams.get('id');
       `
     document.querySelector('#thumbsSwiper-wrapper').innerHTML+=`
        <div class="swiper-slide w-full opacity-40">
-                <img class="w-full object-cover" src="${elem.image}" alt="">
+            <a href="javascript:void(0)">
+            <img class="w-full object-cover" src="${elem.image}" alt="">
+            </a>
               </div>
       `
   })
@@ -125,7 +127,6 @@ async function  offersGame(genres , tags) {
     speed: 500,
     slidesPerView:2,
     spaceBetween: 15,
-    grabCursor: true,
     initialSlide:1 ,
     centeredSlides:true,
     breakpoints: {

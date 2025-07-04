@@ -11,14 +11,17 @@
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
   display: none;
+   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 ::-webkit-scrollbar {
   width: 5px;
+   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 
 ::-webkit-scrollbar-track {
   background: #020618;
   border-radius: 10px;
+   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -122,12 +125,13 @@
   background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
 
-body {
-  cursor: url("../img/cursors/custom-cursor.png"), auto;
+html {
+  cursor: url("../img/cursors/custom-cursor.png") 16 16 , auto;
 }
-button , a , select , .swiper-slide {
-  cursor: url("../img/cursors/custom-pointer.png"), auto;
+button , a , select{
+  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
+
 
 @theme {
   --font-iran-sans: "iran-sans";
