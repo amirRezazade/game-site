@@ -158,7 +158,12 @@ navSearchToggle.addEventListener('click',(e)=>{
     
 })
 
+  const navSearchInput = document.querySelector('#nav-input')
+ document.querySelector('#nav-search-btn').addEventListener('click' , ()=> location.href=`search.html?key=${navSearchInput.value}`)
+navSearchInput.addEventListener('keyup' , event=>{
+  if(event.keyCode==13) location.href=`search.html?key=${navSearchInput.value}`
   
+})
 
   // const card = document.querySelectorAll('.card');
   //     let bounds;

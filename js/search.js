@@ -6,7 +6,6 @@ import {
   platforms,
   cardPlatforms,
 } from "./funcs.js";
-
 const slider = document.getElementById("slider-year");
 const minYear = document.getElementById("min-year");
 const maxYear = document.getElementById("max-year");
@@ -19,6 +18,7 @@ const platformInput = document.querySelector("#platforms");
 const searchInput = document.querySelector("#search-input");
 let page = 1;
 let answer;
+getParams();
 
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".content").classList.remove("hidden");
@@ -66,43 +66,62 @@ pointSlider.noUiSlider.on("update", (values, handle) => {
 
 searchBtn.addEventListener("click", () => {
   page = 1;
-  getParams();
+  setParams();
 });
 document.querySelector("#name-search-btn").addEventListener("click", () => {
   page = 1;
-  getParams();
+  setParams();
 });
 searchInput.addEventListener("keydown", (e) => {
   if (e.keyCode == 13) {
     page = 1;
-    getParams();
+    setParams();
   }
 });
-function getParams() {
-  const yearValues = slider.noUiSlider.get(); 
-  const pointValues = pointSlider.noUiSlider.get(); 
+function setParams() {
+  removeAllUrlParams();
+  const yearValues = slider.noUiSlider.get();
+  const pointValues = pointSlider.noUiSlider.get();
   let minYear = yearValues[0];
   let maxYear = yearValues[1];
   let minPoint = pointValues[0];
   let maxPoint = pointValues[1];
-  let word = searchInput.value.trim()
-    ? `&search=${searchInput.value.trim()}`
-    : "";
-  let genre = genreInput.value != "all" ? `&genres=${genreInput.value}` : "";
-  let platform =
-    platformInput.value != "all"
-      ? `&parent_platforms=${platformInput.value}`
-      : "";
-  console.log(minPoint , maxPoint);
-  
+  let word = searchInput.value.trim();
+  let genre = genreInput.value;
+  let platform = platformInput.value;
+  addUrlParam("min-year", minYear);
+  addUrlParam("max-year", maxYear);
+  addUrlParam("min-point", minPoint);
+  addUrlParam("max-point", maxPoint);
+  addUrlParam("genre", genre);
+  addUrlParam("platform", platform);
+  word != "" ? addUrlParam("key", word) : "";
+  addUrlParam("page", page);
+  getParams();
+}
+function changePage(){
+  addUrlParam("page", page);
+  getParams();
+}
+function getParams() {
+  let urlParams = new URLSearchParams(window.location.search);
+  page = urlParams.get('page') ? urlParams.get('page') : 1 
+  let word = urlParams.get("key") ? `&search=${urlParams.get("key")}` : ""
+  let genre = urlParams.get('genre') ? urlParams.get('genre') : 'all'
+  let platform = urlParams.get('platform') ? urlParams.get('platform') : 'all'
+  let minYear = urlParams.get('min-year') ? urlParams.get('min-year') : 1970
+  let maxYear = urlParams.get('max-year') ? urlParams.get('max-year') : 2025
+  let minPoint = urlParams.get('min-point') ? urlParams.get('min-point'): 1
+  let maxPoint = urlParams.get('max-point') ? urlParams.get('max-point'): 100
   getGames(
-    `https://api.rawg.io/api/games?key=${key}${word}${genre}${platform}&dates=${minYear}-01-01,${maxYear}-12-31&ordering=-rating&metacritic=${minPoint==0 ? 1 : minPoint },${maxPoint}&page_size=18&page=${page}`
+    `https://api.rawg.io/api/games?key=${key}${word}${genre != 'all' ? `&genres=${genre}` : ''}${platform != 'all' ? `&parent_platforms=${platform}` : ''}&dates=${minYear}-01-01,${maxYear}-12-31&metacritic=${minPoint ==0 ? 1 : minPoint},${maxPoint}&ordering=-rating&page_size=18&page=${page}`
   );
+  genreInput.value=urlParams.get('genre') ? urlParams.get('genre') : 'all'
+  platformInput.value=urlParams.get('platform') ? urlParams.get('platform') : 'all'
+  searchInput.value = urlParams.get('key') ? urlParams.get('key') : ''
 }
 async function getGames(url) {
   console.log(url);
-  console.log(page);
-
   document.getElementById("game-loader").style.display = "flex";
   document.getElementById("pagination").style.display = "none";
   document.querySelector("#games-container").innerHTML = "";
@@ -110,8 +129,7 @@ async function getGames(url) {
   let res = await fetch(url);
   answer = await res.json();
   let list = answer.results;
-  // let test = list
-  console.log(list);
+  console.log(answer);
   paginationControl();
   document.getElementById("game-loader").style.display = "none";
   if (answer.count > 18)
@@ -197,21 +215,33 @@ function paginationControl() {
 }
 document.querySelector("#next").addEventListener("click", () => {
   page++;
-  getGames(answer.next);
+  changePage()
 });
 document.querySelector("#prev").addEventListener("click", () => {
   page--;
-  getGames(answer.previous);
+  changePage()
 });
 document.querySelector("#one").addEventListener("click", () => {
   page = 1;
-  getParams();
+  changePage()
 });
 document.querySelector("#end").addEventListener("click", () => {
   page = Number(document.querySelector("#end").textContent);
-  getParams();
+  changePage()
 });
 document.querySelector("#count").addEventListener("click", () => {
   page = Number(document.querySelector("#count").textContent);
-  getParams();
+  changePage()
 });
+
+function addUrlParam(key, value) {
+  let url = new URL(window.location.href);
+  url.searchParams.set(key, value);
+  history.pushState({}, "", url);
+}
+
+function removeAllUrlParams() {
+  let url = new URL(window.location.href);
+  url.search = "";
+  history.pushState({}, "", url);
+}

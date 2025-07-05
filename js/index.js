@@ -420,3 +420,5 @@ let genreWrapper =  document.getElementById(elem.id+'header-genres')
     
     })
 }
+
+
