@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Play host</title>
+    <link rel="preload" href="img/loading-img.png" as="image">
     <link rel="preload" href="img/cursors/custom-cursor.png" as="image">
     <link rel="preload" href="img/cursors/custom-pointer.png" as="image">
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
@@ -12,8 +13,15 @@
     <link href="./src/output.css" rel="stylesheet" />
   </head>
   <body id="top" dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
-   <div class="loader-container">
-     <span class="loader"></span>
+   <div dir="ltr" id="loader" class=" h-screen w-screen justify-center items-center flex flex-col overflow-hidden md:bg-gradient-to-r from-[#13bde844]  via-[#020618] via-[50%] to-[#d819395f]">
+      <img
+        class="loading-img"
+        width="600"
+        height="100"
+        src="img/loading-img.png"
+        alt="loading"
+      />
+        <h1 class="loading-text font-extrabold text-3xl md:text-5xl">L O A D I N G ...</h1>
    </div>
   
     <div class="content hidden">

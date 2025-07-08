@@ -6,7 +6,7 @@
 .custom-shadow-2:hover {
   box-shadow: 0 0 20px 3px oklch(0.457 0.24 277.023);
 }
-/* start scrillbar section  */
+/* start scrollbar section  */
 
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
@@ -31,45 +31,32 @@
 /* finish scrollbar section  */
 
 /* start loader section  */
-.loader-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid #fff;
-  border-right: 4px solid transparent;
-  box-sizing: border-box;
+    
+      .loading-img {
+        animation: loading-img 12s linear infinite;
+      }
 
-  animation: rotation 1s linear infinite;
-}
-.loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border-bottom: 4px solid #4f39f6;
-  border-left: 4px solid transparent;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
+      .loading-text {
+		font-family: fantasy;
+        background: linear-gradient(
+          90deg,
+          #d81939 0%,
+          #13bde8 60%,
+          #d81939 100%
+        );
+
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: loading-text 20s linear infinite;
+      }
+    
 /* finish loader section  */
+
+/* start swiper  section */
 .swiper-pagination-bullet {
   background-color: #43484d;
   width: 10px;
@@ -89,13 +76,11 @@
   opacity: 1;
   transform: translateY(0px);
 }
-
 .card-parent {
   perspective: 1500px;
 }
 .card {
   font-weight: bold;
-  /* padding: 1em; */
   text-align: left;
   height: 100%;
   box-shadow: 0 1px 5px #00000099;
@@ -124,13 +109,70 @@
   display: none;
   background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
+/* finish swiper  section */
 
+/* start cursor section */
 html {
   cursor: url("../img/cursors/custom-cursor.png") 16 16 , auto;
 }
 button , a , select{
   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
+/* finish cursor section */
+
+/* start animations section  */
+ @keyframes loading-img {
+        0% {
+          transform: translate(0);
+        }
+
+        10% {
+          transform: translate(-25px, -25px);
+        }
+
+        20% {
+          transform: translate(25px, -25px);
+        }
+
+        30% {
+          transform: translate(-25px, 25px);
+        }
+
+        40% {
+          transform: translate(25px, 25px);
+        }
+
+        50% {
+          transform: translate(-25px, -25px);
+        }
+
+        60% {
+          transform: translate(25px, -25px);
+        }
+
+        70% {
+          transform: translate(-25px, 25px);
+        }
+
+        80% {
+          transform: translate(-25px, -25px);
+        }
+
+        90% {
+          transform: translate(25px, -25px);
+        }
+
+        100% {
+          transform: translate(0);
+        }
+      }
+        @keyframes loading-text {
+        to {
+          background-position: 400% center;
+        }
+      }
+
+/* finish animations section  */
 
 
 @theme {

@@ -7,6 +7,8 @@ const nav = document.querySelector("nav");
 const navSearchToggle = document.querySelector("#nav-search-toggle");
 
 window.addEventListener('DOMContentLoaded' , ()=>{
+    document.querySelector('.content').classList.remove('hidden')
+    document.querySelector('#loader').style.display='none'
   changeUpToTop();
 })
 window.addEventListener("scroll", () => {

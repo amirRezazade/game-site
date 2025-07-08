@@ -4,8 +4,6 @@ let bounds;
 const accordions = document.querySelectorAll("#accordion");
 window.addEventListener("DOMContentLoaded", () => {
   getHeader()
-  document.querySelector('.content').classList.remove('hidden')
-  document.querySelector('.loader-container').style.display='none'
   changeUpToTop();
   newGems()
   topGems()

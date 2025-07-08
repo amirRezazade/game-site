@@ -1,33 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+      @keyframes loading-img {
+        0% {
+          transform: translate(0);
+        }
+
+        10% {
+          transform: translate(-25px, -25px);
+        }
+
+        20% {
+          transform: translate(25px, -25px);
+        }
+
+        30% {
+          transform: translate(-25px, 25px);
+        }
+
+        40% {
+          transform: translate(25px, 25px);
+        }
+
+        50% {
+          transform: translate(-25px, -25px);
+        }
+
+        60% {
+          transform: translate(25px, -25px);
+        }
+
+        70% {
+          transform: translate(-25px, 25px);
+        }
+
+        80% {
+          transform: translate(-25px, -25px);
+        }
+
+        90% {
+          transform: translate(25px, -25px);
+        }
+
+        100% {
+          transform: translate(0);
+        }
+      }
+      .loading-img {
+        animation: loading-img 12s linear infinite;
+      }
 
 
+      .loading-text {
+		font-family: fantasy;
+        background: linear-gradient(
+          90deg,
+          #d81939 0%,
+          #13bde8 60%,
+          #d81939 100%
+        );
+
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: loading-text 20s linear infinite;
+      }
+      @keyframes loading-text {
+        to {
+          background-position: 400% center;
+        }
+      }
+    </style>
     <title>Document</title>
-</head>
+  </head>
 
-<body class="h-screen bg-no-repeat bg-cover overflow-hidden">
-
-
-
-
-
-
-<!-- 
-<script src="particles.js"></script>
-<script>
-  particlesJS.load('particles-js', 'particles.json', function() {
-    console.log('particles.js loaded');
-  });
-</script> -->
-</body>
+  <body class="h-screen bg-slate-900 bg-contain bg-center bg-no-repeat">
+    <div class="h-screen w-screen justify-center items-center flex flex-col overflow-hidden md:bg-gradient-to-r from-[#13bde844]  via-[#020618] via-[50%] to-[#d819395f]">
+      <img
+        class="loading-img"
+        width="600"
+        height="100"
+        src="img/loading-img.png"
+        alt="loading"
+      />
+        <h1 class="loading-text font-extrabold text-3xl md:text-5xl">L O A D I N G ...</h1>
+    </div>
+  </body>
 </html>
-
-
-
-
-
-
