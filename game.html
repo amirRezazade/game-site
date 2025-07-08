@@ -13,7 +13,7 @@
     }
     </style>
 </head>
-<body id="top" dir="rtl" class=" font-[iran-sans] bg-slate-950 overflow-x-hidden selection:bg-indigo-600 selection:text-white selection:opacity-100">
+<body id="top" >
     <div dir="ltr" id="loader" class=" h-screen w-screen justify-center items-center flex flex-col overflow-hidden md:bg-gradient-to-r from-[#13bde844]  via-[#020618] via-[50%] to-[#d819395f]">
       <img
         class="loading-img"
@@ -24,7 +24,7 @@
       />
         <h1 class="loading-text font-extrabold text-3xl md:text-5xl">L O A D I N G ...</h1>
    </div>
-  
+ 
     <div class="content hidden">
        <!-- start up to top section  -->
     <div id="up-to-top-container" class="fixed hidden  items-center gap-6 -right-10 top-1/2 z-100 -rotate-90 text-white text-sm opacity-0 invisible transition-all duration-500 md:flex">
@@ -297,25 +297,27 @@
         </section>
          <!-- finish more info section  -->
           <!-- start photos section  -->
-        <section class=" text-white lg:h-screen  select-none">
+        <section class=" text-white lg:max-h-screen  select-none">
           <div class=" pb-5 px-5 mx-auto sm:max-w-xl sm:px-0 md:max-w-[700px] lg:max-w-full lg:px-4 xl:max-w-7xl ">
            <div class="h-1/10">
              <span class="py-1 px-3.5 border-2 rounded-full border-gray-600 ">تصاویر بازی</span>
            </div>
-
-          <div class="screen-swiper relative w-full lg:h-[70vh] overflow-hidden mt-5 mb-2 ">
-            <div id="screen-swiper-wrapper" class=" swiper-wrapper w-full">
-           
-            </div>  
-            <div class="hidden sm:flex absolute top-1/2 w-full  justify-between px-4">
-              <button class="screen-swiper-button-next z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z" fill="#432dd7 "></path> </g></svg></button>
-              <button class="screen-swiper-button-prev z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#432dd7 "></path> </g></svg></button>
+          <div id="screens-swiper">
+            <div class="screen-swiper relative w-full lg:h-[70vh] overflow-hidden mt-5 mb-2 ">
+              <div id="screen-swiper-wrapper" class=" swiper-wrapper w-full">
+             
+              </div>  
+              <div class="hidden sm:flex absolute top-1/2 w-full  justify-between px-4">
+                <button class="screen-swiper-button-next z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z" fill="#432dd7 "></path> </g></svg></button>
+                <button class="screen-swiper-button-prev z-99 border border-transparent hover:backdrop-blur-xl hover:border-indigo-700 transition-all duration-300  cursor-pointer rounded-full"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#432dd7 "></path> </g></svg></button>
+              </div>
             </div>
-          </div>
-          <div  thumbsSlider="" class="swiper thumbsSwiper lg:h-[15vh]">
-          <div id="thumbsSwiper-wrapper" class=" swiper-wrapper w-full">
-              
-            </div>  
+            <div  thumbsSlider="" class="swiper thumbsSwiper lg:h-[15vh]">
+            <div id="thumbsSwiper-wrapper" class=" swiper-wrapper w-full">
+                
+              </div>  
+            </div>
+
           </div>
          </div>
 

@@ -18,12 +18,11 @@ const platformInput = document.querySelector("#platforms");
 const searchInput = document.querySelector("#search-input");
 let page = 1;
 let answer;
+let card ;
+let bounds;
 getParams();
 
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".content").classList.remove("hidden");
-  document.querySelector(".loader-container").style.display = "none";
-});
+
 
 noUiSlider.create(slider, {
   start: [1970, 2025],
@@ -121,7 +120,6 @@ function getParams() {
   searchInput.value = urlParams.get('key') ? urlParams.get('key') : ''
 }
 async function getGames(url) {
-  console.log(url);
   document.getElementById("game-loader").style.display = "flex";
   document.getElementById("pagination").style.display = "none";
   document.querySelector("#games-container").innerHTML = "";
@@ -129,7 +127,6 @@ async function getGames(url) {
   let res = await fetch(url);
   answer = await res.json();
   let list = answer.results;
-  console.log(answer);
   paginationControl();
   document.getElementById("game-loader").style.display = "none";
   if (answer.count > 18)
@@ -177,6 +174,20 @@ async function getGames(url) {
 
          `;
   }
+      card = document.querySelectorAll('.card');
+  card.forEach(elem=>{
+    elem.addEventListener('mousemove', (e) => {
+        bounds = elem.getBoundingClientRect();
+          rotateToMouse(elem , e)
+      });
+  })
+  card.forEach(elem=>{
+      elem.addEventListener('mouseleave', () => {
+        elem.style.transform = '';
+        elem.style.background = '';
+      });
+  
+  })
 }
 
 function paginationControl() {
@@ -245,3 +256,34 @@ function removeAllUrlParams() {
   url.search = "";
   history.pushState({}, "", url);
 }
+function rotateToMouse(elem , e) {        
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const leftX = mouseX - bounds.x;
+    const topY = mouseY - bounds.y;
+    const center = {
+      x: leftX - bounds.width / 2,
+      y: topY - bounds.height / 2
+    }
+    const distance = Math.sqrt(center.x**2 + center.y**2);
+    
+    elem.style.transform = `
+     scale3d(1.02, 1.02, 1.02)
+      rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance)* 3}deg
+      )
+    `;
+    
+    elem.querySelector('.glow').style.backgroundImage = `
+      radial-gradient(
+        circle at
+        ${center.x * 2 + bounds.width/2}px
+        ${center.y * 2 + bounds.height/2}px,
+        #ffffff10,
+        #00000009
+      )
+    `;
+  }

@@ -5,8 +5,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const gameId = urlParams.get('id');
  window.addEventListener('DOMContentLoaded' , ()=>{
     getHeader()
-    document.querySelector('.content').classList.remove('hidden')
-     document.querySelector('.loader-container').style.display='none'
      getScreens()
      changeUpToTop();
  })
@@ -59,6 +57,7 @@ const gameId = urlParams.get('id');
   let res= await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${key}`)
   let response = await res.json()
   let photos = response.results
+  if(photos.length){
   photos.forEach(elem=>{
     document.querySelector('#screen-swiper-wrapper').innerHTML+=`
        <div class="swiper-slide w-full">
@@ -89,6 +88,11 @@ const gameId = urlParams.get('id');
         swiper: thumbs,
       },
     })
+ }
+ else{
+  document.querySelector('#screens-swiper').innerHTML=
+  ` <h1 class="text-center mt-15"> تصاویر بیشتری از این بازی وجود ندارد</h1>`
+ }
   
 }
 
