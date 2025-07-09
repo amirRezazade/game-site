@@ -25,17 +25,17 @@ body{
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
   display: none;
-   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
+   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 ::-webkit-scrollbar {
   width: 5px;
-   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
+   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 
 ::-webkit-scrollbar-track {
   background: #020618;
   border-radius: 10px;
-   cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
+   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -127,10 +127,11 @@ body{
 
 /* start cursor section */
 html {
-  cursor: url("../img/cursors/custom-cursor.png") 16 16 , auto;
+  /* https://custom-cursor.com/en/collection/cursors/fluid-light */
+  cursor: url("../img/cursors/custom-pointer.png") 16 16 , auto;
 }
 button , a , select{
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
+  cursor: url("../img/cursors/custom-cursor.png") 16 16 , pointer;
 }
 /* finish cursor section */
 

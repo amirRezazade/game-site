@@ -19,16 +19,13 @@ body {
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
   display: none;
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 ::-webkit-scrollbar {
   width: 5px;
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 ::-webkit-scrollbar-track {
   background: #020618;
   border-radius: 10px;
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #6d20e9, oklch(0.585 0.233 277.117));
@@ -97,10 +94,10 @@ body {
   background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
 html {
-  cursor: url("../img/cursors/custom-cursor.png") 16 16 , auto;
+  cursor: url("../img/cursors/custom-pointer.png") 16 16 , auto;
 }
 button , a , select {
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer;
+  cursor: url("../img/cursors/custom-cursor.png") 16 16 , pointer;
 }
 @keyframes loading-img {
   0% {
@@ -465,6 +462,9 @@ button , a , select {
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-1\/2 {
+    left: calc(1/2 * 100%);
   }
   .isolate {
     isolation: isolate;
@@ -993,6 +993,11 @@ button , a , select {
   }
   .origin-top-right {
     transform-origin: top right;
+  }
+  .-translate-1\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-full {
     --tw-translate-x: -100%;
@@ -1675,6 +1680,9 @@ button , a , select {
   .bg-black\/30 {
     background-color: color-mix(in oklab, var(--color-black) 30%, transparent);
   }
+  .bg-black\/80 {
+    background-color: color-mix(in oklab, var(--color-black) 80%, transparent);
+  }
   .bg-gray-700 {
     background-color: var(--color-gray-700);
   }
@@ -1796,9 +1804,6 @@ button , a , select {
   }
   .bg-\[url\(\.\.\/img\/genres\/card\.webp\)\] {
     background-image: url(../img/genres/card.webp);
-  }
-  .bg-\[url\(\.\.\/img\/login-page-bg\.gif\)\] {
-    background-image: url(../img/login-page-bg.gif);
   }
   .bg-\[url\(\.\.\/img\/premium-section\/1\.webp\)\] {
     background-image: url(../img/premium-section/1.webp);
@@ -2210,9 +2215,6 @@ button , a , select {
   }
   .font-\[iran-num\] {
     font-family: iran-num;
-  }
-  .font-\[iran-sans\] {
-    font-family: iran-sans;
   }
   .font-\[kalam-bold\] {
     font-family: kalam-bold;
@@ -2708,6 +2710,10 @@ button , a , select {
     --tw-duration: 700ms;
     transition-duration: 700ms;
   }
+  .duration-900 {
+    --tw-duration: 900ms;
+    transition-duration: 900ms;
+  }
   .ease-in {
     --tw-ease: var(--ease-in);
     transition-timing-function: var(--ease-in);
@@ -2950,28 +2956,11 @@ button , a , select {
       color: var(--color-indigo-400);
     }
   }
-  .selection\:bg-indigo-600 {
-    & *::selection {
-      background-color: var(--color-indigo-600);
-    }
-    &::selection {
-      background-color: var(--color-indigo-600);
-    }
-  }
-  .selection\:text-white {
-    & *::selection {
-      color: var(--color-white);
-    }
-    &::selection {
-      color: var(--color-white);
-    }
-  }
-  .selection\:opacity-100 {
-    & *::selection {
-      opacity: 100%;
-    }
-    &::selection {
-      opacity: 100%;
+  .hover\:visible {
+    &:hover {
+      @media (hover: hover) {
+        visibility: visible;
+      }
     }
   }
   .hover\:border-indigo-700 {
@@ -3049,6 +3038,13 @@ button , a , select {
     &:hover {
       @media (hover: hover) {
         text-decoration-line: underline;
+      }
+    }
+  }
+  .hover\:opacity-100 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 100%;
       }
     }
   }
