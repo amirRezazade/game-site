@@ -13,7 +13,7 @@ const gameId = urlParams.get('id');
     let res= await fetch(`https://api.rawg.io/api/games/${gameId}?key=${key}`)
     let response = await res.json()
         document.querySelector('#header-content').innerHTML+=`
-        <div class="w-full h-full bg-cover " style="background-image: url('${response.background_image}');">
+        <div class="w-full h-full bg-cover " style="background-image: url('${response.background_image}') , url('img/search-page-background.png');">
             <div class="w-full h-full relative flex items-center bg-gradient-to-l from-black/80 to-transparent">
             <div  class="text-white mt-21 my-5 md:mb-10  flex flex-col items-start gap-4 sm:gap-5 lg:gap-8  pr-5 md:pr-10 w-full xl:w-2/3  lg:items-start lg:pr-20">
               <div class="w-full flex ">

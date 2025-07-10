@@ -127,11 +127,10 @@ body{
 
 /* start cursor section */
 html {
-  /* https://custom-cursor.com/en/collection/cursors/fluid-light */
-  cursor: url("../img/cursors/custom-pointer.png") 16 16 , auto;
+  cursor: url("../img/cursors/custom-cursor.png"), auto;
 }
 button , a , select{
-  cursor: url("../img/cursors/custom-cursor.png") 16 16 , pointer;
+  cursor: url("../img/cursors/custom-pointer.png")  , pointer;
 }
 /* finish cursor section */
 
