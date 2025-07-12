@@ -1,7 +1,7 @@
 # وب‌سایت نمونه کار: Play host
-<div style="display: flex; gap: 10px;">
+<div style="display: flex; justify-content: space-between;">
   <img src="img/demo.jpg" width="30%" />
-  <img src="img/demo2.jpg" width="70%" />
+  <img src="img/demo2.jpg" width="65%" />
 </div>
 
 این یک وبسایت معرفی بازی میباشد که به عنوان نمونه کار طراحی شده است.

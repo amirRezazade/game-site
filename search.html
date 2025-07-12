@@ -408,9 +408,21 @@
              </div>
           </div>
           <div class="w-full flex justify-center ">
-            <button id="search-btn"  type="button" class="  px-20 py-2 md:px-30 lg:px-45 lg:py-3 rounded-full bg-indigo-700 text-white cursor-pointer">
-              جستجو
-            </button>
+            <div class="bg-indigo-700 h-10 md:h-11 xl:h-13 flex items-center rounded-full overflow-hidden">
+              <button id="search-btn"  type="button" class=" h-full  px-15  md:px-20 lg:px-35  text-white cursor-pointer">
+                جستجو
+              </button>
+              <div class="border-r-2 border-black  h-full" >
+              <select id="ordering" class=" p-2 ml-2 text-xs lg:text-sm outline-0 h-full bg-indigo-700">
+                <option value="-metacritic" selected>امتیاز</option>
+                <option value="-released">جدید ترین</option>
+                <option value="released">قدیمی ترین</option>
+                <option value="-popularity">محبوب ترین</option>
+                
+              </select>
+         </div>
+
+            </div>
           </div>
       </div>
 

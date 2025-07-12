@@ -1,4 +1,4 @@
- import {key , genres , esrbRatings , changeUpToTop  ,platforms ,cardPlatforms } from "./funcs.js";
+ import {key , genres , esrbRatings , changeUpToTop  ,platforms ,cardPlatforms ,showVpnModal, removeLoader} from "./funcs.js";
 let card ;
 let bounds;
 const urlParams = new URLSearchParams(window.location.search);
@@ -10,8 +10,10 @@ const gameId = urlParams.get('id');
  })
 
  async function getHeader(){
+  try{
     let res= await fetch(`https://api.rawg.io/api/games/${gameId}?key=${key}`)
-    let response = await res.json()
+    if(!res.ok) showVpnModal()
+    let response = await res.json()     
         document.querySelector('#header-content').innerHTML+=`
         <div class="w-full h-full bg-cover " style="background-image: url('${response.background_image}') , url('img/search-page-background.png');">
             <div class="w-full h-full relative flex items-center bg-gradient-to-l from-black/80 to-transparent">
@@ -23,8 +25,8 @@ const gameId = urlParams.get('id');
                  
                 <div class="flex flex-col gap-3 sm:gap-5 xl:justify-around">
                 <p >تاریخ انتشار: <span> ${ response.released ? response.released : 'اعلام نشده'}</span></p>
-                <p class="${response.tba==true ? 'hidden' : ''}">آخرین آپدیت: <span> ${response.updated.slice(0,10)}</span></p>
-                <p>امتیاز: <span class=""> ${response.rating.toFixed(1)} از 5</span></p>
+                <p class="">امتیاز منتقدان: <span> ${response.metacritic}</span></p>
+                <p>امتیاز کاربران: <span class=""> ${response.rating.toFixed(1)} از 5</span></p>
                 <p>تعداد رای دهندگان: <span class=""> ${response.reviews_count	}</span></p>
                 <p>رده سنی: <span class=""> ${response.esrb_rating ? esrbRatings[response.esrb_rating.id].fa : esrbRatings[6].fa}</span></p>
                 <p class="${response.playtime==0 ? 'hidden' : ''}">میانگین زمان بازی: <span class=""> ${response.playtime} ساعت </span></p>
@@ -45,17 +47,19 @@ const gameId = urlParams.get('id');
                  ${response.description}
 
         `
-
         getHeaderGenres(response.genres)
         getHeaderPlatforms(response.parent_platforms)
-      
-    //  offersGame(response.genres[0].id , response.tags[0].id)
-     offersGame(response.genres , response.tags )
+        offersGame(response.genres , response.tags )
+        removeLoader()
+  }
+  catch (error){
+    showVpnModal()
+  }
  }
 
  async function  getScreens() {
   let res= await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${key}`)
-  let response = await res.json()
+  let response = await res.json()  
   let photos = response.results
   if(photos.length){
   photos.forEach(elem=>{
