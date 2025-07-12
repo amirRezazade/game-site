@@ -1,4 +1,4 @@
- import {key , genres , esrbRatings , changeUpToTop } from "./funcs.js";
+import { changeUpToTop } from "./funcs.js";
 
 const navItems = document.querySelectorAll("#nav-items");
 const toggleMenu = document.querySelector("#toggle-menu");
@@ -6,10 +6,9 @@ const toggleMenuBtn = document.querySelector("#toggle-menu-btn");
 const nav = document.querySelector("nav");
 const navSearchToggle = document.querySelector("#nav-search-toggle");
 
-window.addEventListener('load' , ()=>{
-    
+window.addEventListener("load", () => {
   changeUpToTop();
-})
+});
 window.addEventListener("scroll", () => {
   let navOffsetTop = window.scrollY;
   if (navOffsetTop >= 70) {
@@ -153,17 +152,19 @@ navItems.forEach((elm) => {
     }
   });
 });
-navSearchToggle.addEventListener('click',(e)=>{
-    document.querySelector('#nav-search-parent').classList.toggle('opacity-0')
-    document.querySelector('#nav-search-parent').classList.toggle('invisible')
-    
-})
+navSearchToggle.addEventListener("click", (e) => {
+  document.querySelector("#nav-search-parent").classList.toggle("opacity-0");
+  document.querySelector("#nav-search-parent").classList.toggle("invisible");
+});
 
-  const navSearchInput = document.querySelector('#nav-input')
- document.querySelector('#nav-search-btn').addEventListener('click' , ()=> location.href=`search.html?key=${navSearchInput.value}`)
-navSearchInput.addEventListener('keyup' , event=>{
-  if(event.keyCode==13) location.href=`search.html?key=${navSearchInput.value}`
-  
-})
-
-
+const navSearchInput = document.querySelector("#nav-input");
+document
+  .querySelector("#nav-search-btn")
+  .addEventListener(
+    "click",
+    () => (location.href = `search.html?key=${navSearchInput.value}`)
+  );
+navSearchInput.addEventListener("keyup", (event) => {
+  if (event.keyCode == 13)
+    location.href = `search.html?key=${navSearchInput.value}`;
+});

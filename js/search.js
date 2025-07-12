@@ -1,9 +1,5 @@
 import {
   key,
-  genres,
-  esrbRatings,
-  changeUpToTop,
-  platforms,
   cardPlatforms,
   showVpnModal,
   removeLoader

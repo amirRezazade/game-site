@@ -25,17 +25,14 @@ body{
 .scrollbar-hidden::-webkit-scrollbar {
   width: 0;
   display: none;
-   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 ::-webkit-scrollbar {
   width: 5px;
-   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 
 ::-webkit-scrollbar-track {
   background: #020618;
   border-radius: 10px;
-   /* cursor: url("../img/cursors/custom-pointer.png") 16 16 , pointer; */
 }
 
 ::-webkit-scrollbar-thumb {
