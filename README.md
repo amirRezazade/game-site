@@ -8,7 +8,7 @@
 
 ## 🔗 لینک دمو (با vpn وارد شوید)
 
-<a href="https://amirrezazade.github.io/game-site/" t>مشاهده وب‌سایت به صورت زنده</a>
+<a href="https://amirrezazade.github.io/game-site/" >مشاهده وب‌سایت به صورت زنده</a>
 
 
 ---

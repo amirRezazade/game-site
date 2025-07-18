@@ -3715,6 +3715,11 @@ button , a , select {
       padding-block: calc(var(--spacing) * 3);
     }
   }
+  .lg\:py-10 {
+    @media (width >= 64rem) {
+      padding-block: calc(var(--spacing) * 10);
+    }
+  }
   .lg\:py-15 {
     @media (width >= 64rem) {
       padding-block: calc(var(--spacing) * 15);
@@ -3884,6 +3889,11 @@ button , a , select {
       height: 100vh;
     }
   }
+  .xl\:w-1\/3 {
+    @media (width >= 80rem) {
+      width: calc(1/3 * 100%);
+    }
+  }
   .xl\:w-2\/3 {
     @media (width >= 80rem) {
       width: calc(2/3 * 100%);
@@ -3947,6 +3957,11 @@ button , a , select {
   .xl\:px-8 {
     @media (width >= 80rem) {
       padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+  .xl\:px-15 {
+    @media (width >= 80rem) {
+      padding-inline: calc(var(--spacing) * 15);
     }
   }
   .xl\:text-5xl {
