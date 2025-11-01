@@ -1,12 +1,12 @@
 @import url(../styles/fonts.css);
 
 /* start change default styles  */
-body{
+body {
   font-family: iran-sans;
   background-color: #020618;
   overflow-x: hidden;
 }
-::selection{
+::selection {
   color: #ffffff;
   opacity: 100;
   background-color: #4f39f6;
@@ -42,29 +42,35 @@ body{
 /* finish scrollbar section  */
 
 /* start loader section  */
-    
-      .loading-img {
-        animation: loading-img 12s linear infinite;
-      }
+.loading-animation {
+  background: linear-gradient(90deg, #aaa 25%, #999 50%, #aaa 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.8s infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.loading-img {
+  animation: loading-img 12s linear infinite;
+}
 
+.loading-text {
+  font-family: fantasy;
+  background: linear-gradient(90deg, #d81939 0%, #13bde8 60%, #d81939 100%);
 
-      .loading-text {
-		font-family: fantasy;
-        background: linear-gradient(
-          90deg,
-          #d81939 0%,
-          #13bde8 60%,
-          #d81939 100%
-        );
+  background-size: 400% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-        background-size: 400% auto;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+  animation: loading-text 20s linear infinite;
+}
 
-        animation: loading-text 20s linear infinite;
-      }
-    
 /* finish loader section  */
 
 /* start swiper  section */
@@ -121,75 +127,141 @@ body{
   background-image: radial-gradient(circle at 50% -20%, #ffffff10, #00000009);
 }
 /* finish swiper  section */
+/* start noui slider styles */
+
+.noUi-target {
+  background: #111;
+  border: none !important;
+  height: 3px !important; /* ← ارتفاع نوار اسلایدر */
+  border-radius: 3px;
+  border: none;
+}
+.noUi-base {
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.custom-slider .noUi-connect {
+  background-color: #4338ca !important;
+}
+
+.custom-slider .noUi-handle {
+  background-color: #4338ca !important;
+  border: 1px solid white !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 0;
+  transform: rotate(45deg);
+  cursor: grab;
+  box-shadow: none;
+}
+
+.custom-slider .noUi-handle::before,
+.custom-slider .noUi-handle::after {
+  display: none;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 white, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 white, 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 white, 120px 0 white, 110px 0 white, 100px 0 white;
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white, 110px 0 white;
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white;
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 white;
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+/* finish noui slider styles */
 
 /* start cursor section */
 html {
   cursor: url("../img/cursors/custom-cursor.png"), auto;
 }
-button , a , select{
-  cursor: url("../img/cursors/custom-pointer.png")  , pointer;
+button,
+a,
+select {
+  cursor: url("../img/cursors/custom-pointer.png"), pointer;
 }
 /* finish cursor section */
 
 /* start animations section  */
- @keyframes loading-img {
-        0% {
-          transform: translate(0);
-        }
+@keyframes loading-img {
+  0% {
+    transform: translate(0);
+  }
 
-        10% {
-          transform: translate(-25px, -25px);
-        }
+  10% {
+    transform: translate(-25px, -25px);
+  }
 
-        20% {
-          transform: translate(25px, -25px);
-        }
+  20% {
+    transform: translate(25px, -25px);
+  }
 
-        30% {
-          transform: translate(-25px, 25px);
-        }
+  30% {
+    transform: translate(-25px, 25px);
+  }
 
-        40% {
-          transform: translate(25px, 25px);
-        }
+  40% {
+    transform: translate(25px, 25px);
+  }
 
-        50% {
-          transform: translate(-25px, -25px);
-        }
+  50% {
+    transform: translate(-25px, -25px);
+  }
 
-        60% {
-          transform: translate(25px, -25px);
-        }
+  60% {
+    transform: translate(25px, -25px);
+  }
 
-        70% {
-          transform: translate(-25px, 25px);
-        }
+  70% {
+    transform: translate(-25px, 25px);
+  }
 
-        80% {
-          transform: translate(-25px, -25px);
-        }
+  80% {
+    transform: translate(-25px, -25px);
+  }
 
-        90% {
-          transform: translate(25px, -25px);
-        }
+  90% {
+    transform: translate(25px, -25px);
+  }
 
-        100% {
-          transform: translate(0);
-        }
-      }
-        @keyframes loading-text {
-        to {
-          background-position: 400% center;
-        }
-      }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes loading-text {
+  to {
+    background-position: 400% center;
+  }
+}
 
 /* finish animations section  */
-
 
 @theme {
   --font-iran-sans: "iran-sans";
   --font-kalam: "kalam";
   --font-kalam-bold: "kalam-bold";
   --font-iran-num: "iran-num";
+  --breakpoint-xs: 501px;
 }
 @import "tailwindcss";
