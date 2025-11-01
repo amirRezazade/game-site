@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play host</title>
+    <title>Play host || game</title>
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
     <link rel="stylesheet" href="assets/swiper-bundle.min.css">
     <link href="./src/output.css" rel="stylesheet" />
@@ -14,16 +14,28 @@
     </style>
 </head>
 <body id="top" >
-    <div dir="ltr" id="loader" class=" h-screen w-screen justify-center items-center flex flex-col overflow-hidden md:bg-gradient-to-r from-[#13bde844]  via-[#020618] via-[50%] to-[#d819395f]">
-      <img
-        class="loading-img"
-        width="600"
-        height="100"
-        src="img/loading-img.png"
-        alt="loading"
-      />
-        <h1 class="loading-text font-extrabold text-3xl md:text-5xl">L O A D I N G ...</h1>
-   </div>
+    <div dir="rtl" id="loading" >
+      <div>
+        <div class="loader">
+          <svg viewBox="0 0 80 80">
+            <circle r="32" cy="40" cx="40" id="test"></circle>
+          </svg>
+        </div>
+
+        <div class="loader triangle">
+          <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72"></polygon>
+          </svg>
+        </div>
+
+        <div class="loader">
+          <svg viewBox="0 0 80 80">
+            <rect height="64" width="64" y="8" x="8"></rect>
+          </svg>
+        </div>
+        <h1 class="loading-text">لطفا vpn خود را روشن کنید!</h1>
+      </div>
+    </div>
  
     <div class="content hidden">
        <!-- start up to top section  -->

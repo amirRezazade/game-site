@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play host</title>
+    <title>Play host || search</title>
     <link rel="icon" type="image/x-icon" href="img/icons8-game-96.png">
     <link href="./src/output.css" rel="stylesheet" />
    <link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css" rel="stylesheet">
    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
 </head>
 <body id="top" >
-    <div dir="ltr" id="loader" class=" h-screen w-screen justify-center items-center flex flex-col overflow-hidden md:bg-gradient-to-r from-[#13bde844]  via-[#020618] via-[50%] to-[#d819395f]">
-      <img
-        class="loading-img"
-        width="600"
-        height="100"
-        src="img/loading-img.png"
-        alt="loading"
-      />
-        <h1 class="loading-text font-extrabold text-3xl md:text-5xl">L O A D I N G ...</h1>
-   </div>
+    <div dir="rtl" id="loading" >
+      <div>
+        <div class="loader">
+          <svg viewBox="0 0 80 80">
+            <circle r="32" cy="40" cx="40" id="test"></circle>
+          </svg>
+        </div>
+
+        <div class="loader triangle">
+          <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72"></polygon>
+          </svg>
+        </div>
+
+        <div class="loader">
+          <svg viewBox="0 0 80 80">
+            <rect height="64" width="64" y="8" x="8"></rect>
+          </svg>
+        </div>
+        <h1 class="loading-text">لطفا vpn خود را روشن کنید!</h1>
+      </div>
+    </div>
   <main class="content  text-white bg-cover bg-fixed bg-[url(../img/search-page-background.png)]" >
      <nav class="bg-slate-950 py-2 px-6 transition-all duration-300 flex justify-between items-center w-full h-auto fixed top-0 z-100 text-white select-none lg:bg-transparent  xl:justify-evenly 2xl:px-20" >
           <button id="toggle-menu-btn" class=" lg:hidden z-50">
