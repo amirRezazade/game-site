@@ -16,8 +16,8 @@ async function getHeader() {
     onTop.forEach((elem) => {
       document.querySelector("#header-swiper-wrapper").innerHTML += `
           <div class="swiper-slide">
-              <div class=" w-screen h-[80vh] md:h-screen shrink-0  bg-cover " style=" background-image: url('${elem.background_image}') , url('img/search-page-background.png')" >
-              <div class="w-full h-full relative flex flex-col justify-center items-center lg:items-start lg:pr-25 bg-gradient-to-l from-black/80 to-transparent">
+              <div class=" w-screen h-full md:h-screen shrink-0  bg-cover " style=" background-image: url(${elem.background_image}) , url('img/default-bg.jpg')" >
+              <div class="w-full h-full relative flex flex-col justify-center items-center lg:items-start lg:pr-25 bg-gradient-to-l from-black/80 to-transparent to-45%">
               
                 <div class="animated absolute w-1/1 h-auto z-30 px-5 sm:w-3/4 sm:px-0 lg:w-2/4">
                   <div class="inline-flex items-center gap-3 w-auto  border-1 px-3 py-1 border-gray-300 rounded-full ">
